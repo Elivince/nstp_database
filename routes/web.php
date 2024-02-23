@@ -1,8 +1,9 @@
 <?php
 
+use App\Models\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RequestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/tracker', [PageController::class, 'showtable']);
+Route::get('/tracker', [RequestController::class, 'showtable']);
 
 require __DIR__.'/auth.php';

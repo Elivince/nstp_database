@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Request;
 
-class PageController extends Controller
+class RequestController extends Controller
 {
     public function showTable()
     {
