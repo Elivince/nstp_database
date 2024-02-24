@@ -1,9 +1,8 @@
 <?php
 
-use App\Models\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\RequestController;
+use App\Http\Controllers\TrackerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +29,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/tracker', [RequestController::class, 'showtable']);
+Route::get('/tracker', [TrackerController::class, 'showtable']);
+
+Route::post('/addRequest', [TrackerController::class, 'addRecordToTable']);
+
+Route::get('/addRecord', function () {
+    return view('addRecord');
+});
 
 require __DIR__.'/auth.php';

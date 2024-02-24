@@ -10,9 +10,8 @@
         <div class="bg-gray-200 dark:bg-gray-900 w-1/4 p-6">
             <ul>
                 <li><a href="{{ url('dashboard') }}" class="text-white hover:text-red-700">Button 1</a></li>
-                <li><a href="#" class="text-white hover:text-red-700">Button 2</a></li>
-                <li><a href="{{ url('tracker') }}" class="text-white hover:text-red-700">Button 3</a></li>
-
+                <li><a href="{{ url('tracker') }}" class="text-white hover:text-red-700">Button 2</a></li>
+                <li><a href="{{ url('addRecord') }}" class="text-white hover:text-red-700">Button 3</a></li>
             </ul>
         </div>
 
