@@ -29,14 +29,19 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/tracker', [TrackerController::class, 'showtable']);
+//SERIAL NO. REQUEST TRACKER ROUTES//
+    //Show Table
+    Route::get('/tracker', [TrackerController::class, 'showtable']);
 
-Route::post('/addRequest', [TrackerController::class, 'addRecordToTable']);
+    //Add Function
+    Route::get('/viewAddRequest', [TrackerController::class, 'showAddRequestPage']);
+    Route::post('/addRequest', [TrackerController::class, 'addRecordToTable']);
 
-Route::get('/addRecord', function () {
-    return view('addRecord');
-});
+    //Edit Function
+    Route::get('/viewEditRequest/{request}', [TrackerController::class, 'showEditRequestPage']);
+    Route::put('/viewEditRequest/{request}', [TrackerController::class, 'editRecordFromTable']);
 
-Route::delete('/deleteRequest/{request}', [TrackerController::class, 'deleteRecordFromTable']);
+    //Delete Function
+    Route::delete('/deleteRequest/{request}', [TrackerController::class, 'deleteRecordFromTable']);
 
 require __DIR__.'/auth.php';
