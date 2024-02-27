@@ -11,6 +11,8 @@ class Tracker extends Model
 
     protected $table = 'requests';
 
+    protected $primaryKey = 'request_id';
+
     public $timestamps = false;
     
     protected $fillable = [

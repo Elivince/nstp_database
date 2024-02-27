@@ -10,7 +10,6 @@
         <ul>
           <li><a href="{{ url('dashboard') }}" class="text-white hover:text-red-700">Button 1</a></li>
           <li><a href="{{ url('tracker') }}" class="text-white hover:text-red-700">Button 2</a></li>
-          <li><a href="{{ url('addRecord') }}" class="text-white hover:text-red-700">Button 3</a></li>
         </ul>
     </div>
   <p><form id="addRecordForm" action="/addRequest" method="POST">
@@ -48,7 +47,7 @@
 
 <div class="input-container">
   <i class="fa fa-key icon"></i>
-  <input class="input-field" type="text" placeholder="Remarks" name="marks">
+  <input class="input-field" type="text" placeholder="Remarks" name="remarks">
 </div>
 
 <button type="submit">Add</button>

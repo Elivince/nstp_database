@@ -27,6 +27,11 @@ class TrackerController extends Controller
         $incomingFields['issued_by'] = Auth::user()->name;
 
         Tracker::create($incomingFields);
-        return 'Record added successfully';
+        return redirect('/tracker');
+    }
+
+    public function deleteRecordFromTable(Tracker $request) {
+        $request->delete();
+        return redirect('/tracker');
     }
 }

@@ -37,4 +37,6 @@ Route::get('/addRecord', function () {
     return view('addRecord');
 });
 
+Route::delete('/deleteRequest/{request}', [TrackerController::class, 'deleteRecordFromTable']);
+
 require __DIR__.'/auth.php';

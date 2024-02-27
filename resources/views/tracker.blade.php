@@ -3,6 +3,7 @@
         <h2 class="font-semibold text-xl text-gray-800 text-center dark:text-gray-200 leading-tight">
             {{ __('Serial Number Request Tracker') }}
         </h2>
+        <li><a href="{{ url('addRecord') }}" class="text-white hover:text-red-700">Add</a></li>
     </x-slot>
 
     <div class="flex">
@@ -10,7 +11,6 @@
             <ul>
               <li><a href="{{ url('dashboard') }}" class="text-white hover:text-red-700">Button 1</a></li>
               <li><a href="{{ url('tracker') }}" class="text-white hover:text-red-700">Button 2</a></li>
-              <li><a href="{{ url('addRecord') }}" class="text-white hover:text-red-700">Button 3</a></li>
             </ul>
         </div>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -19,7 +19,7 @@
                     <table class="min-w-full divide-y divide-gray-200">
                         <thead>
                             <tr>
-                                <th class="px-6 py-3 bg-gray-50 dark:bg-gray-700 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                                <th class="px-6 py-3 bg-gray-50 dark:bg-gray-700 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Date Issued</th>
                                 <th class="px-6 py-3 bg-gray-50 dark:bg-gray-700 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Name</th>
                                 <th class="px-6 py-3 bg-gray-50 dark:bg-gray-700 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Component</th>
                                 <th class="px-6 py-3 bg-gray-50 dark:bg-gray-700 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Campus</th>
@@ -43,6 +43,13 @@
                                 <td class="px-6 py-2 text-center whitespace-no-wrap border-b border-gray-200 dark:border-gray-600">{{ $request->serialno }}</td>
                                 <td class="px-6 py-2 text-center whitespace-no-wrap border-b border-gray-200 dark:border-gray-600">{{ $request->remarks }}</td>
                                 <td class="px-6 py-2 text-center whitespace-no-wrap border-b border-gray-200 dark:border-gray-600">{{ $request->issued_by }}</td>
+                                <td class="px-6 py-2 text-center whitespace-no-wrap border-b border-gray-200 dark:border-gray-600"><a href="#">Edit</a>
+                                <td class="px-6 py-2 text-center whitespace-no-wrap border-b border-gray-200 dark:border-gray-600"><form action="/deleteRequest/{{ $request->request_id }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button>Delete</button>
+                                </form>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

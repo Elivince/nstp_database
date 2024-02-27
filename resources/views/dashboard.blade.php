@@ -11,7 +11,6 @@
             <ul>
                 <li><a href="{{ url('dashboard') }}" class="text-white hover:text-red-700">Button 1</a></li>
                 <li><a href="{{ url('tracker') }}" class="text-white hover:text-red-700">Button 2</a></li>
-                <li><a href="{{ url('addRecord') }}" class="text-white hover:text-red-700">Button 3</a></li>
             </ul>
         </div>
 
