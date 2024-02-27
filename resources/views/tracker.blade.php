@@ -9,8 +9,8 @@
     <div class="flex">
         <div class="bg-gray-200 dark:bg-gray-900 w-1/4 p-6">
             <ul>
-              <li><a href="{{ url('dashboard') }}" class="text-white hover:text-red-700">Button 1</a></li>
-              <li><a href="{{ url('tracker') }}" class="text-white hover:text-red-700">Button 2</a></li>
+                <li><a href="{{ url('dashboard') }}" class="text-white hover:text-red-700">Button 1</a></li>
+                <li><a href="{{ url('tracker') }}" class="text-white hover:text-red-700">Button 2</a></li>
             </ul>
         </div>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -44,11 +44,12 @@
                                 <td class="px-6 py-2 text-center whitespace-no-wrap border-b border-gray-200 dark:border-gray-600">{{ $request->remarks }}</td>
                                 <td class="px-6 py-2 text-center whitespace-no-wrap border-b border-gray-200 dark:border-gray-600">{{ $request->issued_by }}</td>
                                 <td class="px-6 py-2 text-center whitespace-no-wrap border-b border-gray-200 dark:border-gray-600"><a href="#">Edit</a>
-                                <td class="px-6 py-2 text-center whitespace-no-wrap border-b border-gray-200 dark:border-gray-600"><form action="/deleteRequest/{{ $request->request_id }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button>Delete</button>
-                                </form>
+                                <td class="px-6 py-2 text-center whitespace-no-wrap border-b border-gray-200 dark:border-gray-600">
+                                    <form action="/deleteRequest/{{ $request->request_id }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button>Delete</button>
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach
