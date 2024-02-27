@@ -20,6 +20,8 @@ class TrackerController extends Controller
             'campus' => 'required',
             'course' => 'required',
             'graduation_year' => 'required',
+            'serial_no' => 'nullable',
+            'remarks' => 'nullable'
         ]);
 
         $incomingFields['date'] = today();

@@ -40,7 +40,7 @@
                                 <td class="px-6 py-2 text-center whitespace-no-wrap border-b border-gray-200 dark:border-gray-600">{{ $request->campus }}</td>
                                 <td class="px-6 py-2 text-center whitespace-no-wrap border-b border-gray-200 dark:border-gray-600">{{ $request->course }}</td>
                                 <td class="px-6 py-2 text-center whitespace-no-wrap border-b border-gray-200 dark:border-gray-600">{{ $request->graduation_year }}</td>
-                                <td class="px-6 py-2 text-center whitespace-no-wrap border-b border-gray-200 dark:border-gray-600">{{ $request->serialno }}</td>
+                                <td class="px-6 py-2 text-center whitespace-no-wrap border-b border-gray-200 dark:border-gray-600">{{ $request->serial_no }}</td>
                                 <td class="px-6 py-2 text-center whitespace-no-wrap border-b border-gray-200 dark:border-gray-600">{{ $request->remarks }}</td>
                                 <td class="px-6 py-2 text-center whitespace-no-wrap border-b border-gray-200 dark:border-gray-600">{{ $request->issued_by }}</td>
                                 <td class="px-6 py-2 text-center whitespace-no-wrap border-b border-gray-200 dark:border-gray-600"><a href="#">Edit</a>
