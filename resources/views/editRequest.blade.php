@@ -10,9 +10,9 @@
         <ul>
           <li><a href="{{ url('dashboard') }}" class="text-white hover:text-red-700">Button 1</a></li>
           <li><a href="{{ url('tracker') }}" class="text-white hover:text-red-700">Button 2</a></li>
-        </ul>
+          </ul>
     </div>
-<p><form id="editRecordForm" action="/viewEditRequest/{{$request}}" method="POST">
+<form id="editRecordForm" action="/viewEditRequest/{{$request->request_id}}" method="POST">
       @csrf
       @method('PUT')
 <h2>Edit a record</h2>
@@ -52,6 +52,6 @@
 </div>
 
 <button type="submit">Save</button>
-</form></p>
+</form>
 </body>
 </html>
