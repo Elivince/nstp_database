@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('auth/login');
 });
 
-Route::get('/dashboard', function () {  
+Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -39,4 +39,4 @@ Route::get('/addRecord', function () {
 
 Route::delete('/deleteRequest/{request}', [TrackerController::class, 'deleteRecordFromTable']);
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
