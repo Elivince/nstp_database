@@ -10,7 +10,7 @@ class TrackerController extends Controller
 {
     public function showTable()
     {
-        $requests = Tracker::all();
+        $requests = Tracker::query()->sortable()->get();
 
         return view('tracker', ['requests' => $requests]);
     }

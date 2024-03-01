@@ -7,27 +7,28 @@
     </x-slot>
 
     <div class="flex">
-        <div class="bg-gray-200 dark:bg-gray-900 w-1/4 p-6">
+        <div class="bg-gray-200 dark:bg-gray-900 w-full w-1/4 p-6">
             <ul>
               <li><a href="{{ url('dashboard') }}" class="text-white hover:text-red-700">Button 1</a></li>
               <li><a href="{{ url('tracker') }}" class="text-white hover:text-red-700">Button 2</a></li>
             </ul>
         </div>
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-full mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
+                    <div class="overflow-x-auto">
                     <table class="min-w-full divide-y divide-gray-200">
                         <thead>
                             <tr>
-                                <th class="px-6 py-3 bg-gray-50 dark:bg-gray-700 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Date Issued</th>
-                                <th class="px-6 py-3 bg-gray-50 dark:bg-gray-700 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Name</th>
-                                <th class="px-6 py-3 bg-gray-50 dark:bg-gray-700 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Component</th>
-                                <th class="px-6 py-3 bg-gray-50 dark:bg-gray-700 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Campus</th>
-                                <th class="px-6 py-3 bg-gray-50 dark:bg-gray-700 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Course</th>
-                                <th class="px-6 py-3 bg-gray-50 dark:bg-gray-700 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Year Graduated</th>
-                                <th class="px-6 py-3 bg-gray-50 dark:bg-gray-700 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Serial Number</th>
-                                <th class="px-6 py-3 bg-gray-50 dark:bg-gray-700 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Remarks</th>
-                                <th class="px-6 py-3 bg-gray-50 dark:bg-gray-700 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Issued by</th>
+                                <th class="px-6 py-3 bg-gray-50 dark:bg-gray-700 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">@sortablelink('date', 'Date Issued')</th>
+                                <th class="px-6 py-3 bg-gray-50 dark:bg-gray-700 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">@sortablelink('name', 'Name')</th>
+                                <th class="px-6 py-3 bg-gray-50 dark:bg-gray-700 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">@sortablelink('name', 'Component')</th>
+                                <th class="px-6 py-3 bg-gray-50 dark:bg-gray-700 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">@sortablelink('name', 'Campus')</th>
+                                <th class="px-6 py-3 bg-gray-50 dark:bg-gray-700 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">@sortablelink('name', 'Course')</th>
+                                <th class="px-6 py-3 bg-gray-50 dark:bg-gray-700 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">@sortablelink('date', 'Year Graduated')</th>
+                                <th class="px-6 py-3 bg-gray-50 dark:bg-gray-700 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Serial Number</th>
+                                <th class="px-6 py-3 bg-gray-50 dark:bg-gray-700 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Remarks</th>
+                                <th class="px-6 py-3 bg-gray-50 dark:bg-gray-700 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">@sortablelink('name', 'Issued by')</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -53,6 +54,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    </div>
                 </div>
             </div>
         </div>
