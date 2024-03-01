@@ -9,7 +9,7 @@
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
                     </a>
                     <div class="ml-4">
-                        <h1 class="text-xl font-bold text-gray-800 dark:text-gray-200">NSTP DATABASE SYSTEM</h1>
+                        <h1 class="text-xl font-bold text-gray-800 dark:text-gray-200">NSTP TRACKING SYSTEM</h1>
                     </div>
                 </div>
             </div>
