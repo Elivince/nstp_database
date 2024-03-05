@@ -9,7 +9,6 @@
 
 
     <title>{{ config('app.name', 'NSTP') }}</title>
-
     <!-- tailwind css -->
     <script src="https://cdn.tailwindcss.com/2.2.19/tailwind.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>

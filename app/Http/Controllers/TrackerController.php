@@ -8,12 +8,14 @@ use Illuminate\Support\Facades\Auth;
 
 class TrackerController extends Controller
 {
-    public function showTable() {
+    public function showTable()
+    {
         $requests = Tracker::all();
         return view('tracker', ['requests' => $requests]);
     }
 
-    public function addRecordToTable(Request $request) {
+    public function addRecordToTable(Request $request)
+    {
         $incomingFields = $request->validate([
             'name' => 'required',
             'component' => 'required',
@@ -30,7 +32,8 @@ class TrackerController extends Controller
         return redirect('/tracker');
     }
 
-    public function deleteRecordFromTable(Tracker $request) {
+    public function deleteRecordFromTable(Tracker $request)
+    {
         $request->delete();
         return redirect('/tracker');
     }

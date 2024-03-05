@@ -24,12 +24,6 @@
  <x-app-layout>
      <div x-data="setup()" :class="{ 'dark': isDark }">
          <div class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
-             <!-- Header -->
-             <x-slot name="header">
-                 <h2 class="font-semibold text-xl text-center text-gray-800 dark:text-gray-200 leading-tight">
-                     {{ __('Dashboard') }}
-                 </h2>
-             </x-slot>
 
              <!-- Sidebar -->
              <div class="fixed flex flex-col top-14 left-0 w-14 hover:w-64 md:w-64 bg-blue-900 dark:bg-gray-900 h-full text-white transition-all duration-300 border-none z-10 sidebar">
@@ -114,7 +108,7 @@
              </div>
 
              <!-- Main Content -->
-             <div class="h-full ml-14 mt-10 mb-10 md:ml-64">
+             <div class="mt-16 h-full ml-14 mb-10 md:ml-64">
                  <!-- Statistics Cards -->
                  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 p-4 gap-4">
                      <div class="bg-blue-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
@@ -166,12 +160,12 @@
 
                  <div class="grid grid-cols-1 lg:grid-cols-2 p-4 gap-4">
 
-                     <!-- Social Traffic -->
+                     <!-- Incoming Communication -->
                      <div class="relative flex flex-col min-w-0 mb-4 lg:mb-0 break-words bg-gray-50 dark:bg-gray-800 w-full shadow-lg rounded">
                          <div class="rounded-t mb-0 px-0 border-0">
                              <div class="flex flex-wrap items-center px-4 py-2">
                                  <div class="relative w-full max-w-full flex-grow flex-1">
-                                     <h3 class="font-semibold text-base text-gray-900 dark:text-gray-50">Social Traffic</h3>
+                                     <h3 class="font-semibold text-base text-gray-900 dark:text-gray-50">Incoming Communication</h3>
                                  </div>
                                  <div class="relative w-full max-w-full flex-grow flex-1 text-right">
                                      <button class="bg-blue-500 dark:bg-gray-100 text-white active:bg-blue-600 dark:text-gray-800 dark:active:text-gray-700 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">See all</button>
@@ -264,12 +258,12 @@
                      </div>
                      <!-- ./Social Traffic -->
 
-                     <!-- Recent Activities -->
+                     <!-- Outgoing Communication -->
                      <div class="relative flex flex-col min-w-0 break-words bg-gray-50 dark:bg-gray-800 w-full shadow-lg rounded">
                          <div class="rounded-t mb-0 px-0 border-0">
                              <div class="flex flex-wrap items-center px-4 py-2">
                                  <div class="relative w-full max-w-full flex-grow flex-1">
-                                     <h3 class="font-semibold text-base text-gray-900 dark:text-gray-50">Recent Activities</h3>
+                                     <h3 class="font-semibold text-base text-gray-900 dark:text-gray-50">Outgoing Communication</h3>
                                  </div>
                                  <div class="relative w-full max-w-full flex-grow flex-1 text-right">
                                      <button class="bg-blue-500 dark:bg-gray-100 text-white active:bg-blue-600 dark:text-gray-800 dark:active:text-gray-700 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">See all</button>
@@ -358,12 +352,12 @@
                  <!-- Task Summaries -->
                  <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 p-4 gap-4 text-black dark:text-white">
                      <div class="md:col-span-2 xl:col-span-3">
-                         <h3 class="text-lg font-semibold">Task summaries of recent sprints</h3>
+                         <h3 class="text-lg font-semibold">Task Summaries and Activities</h3>
                      </div>
                      <div class="md:col-span-2 xl:col-span-1">
                          <div class="rounded bg-gray-200 dark:bg-gray-800 p-3">
                              <div class="flex justify-between py-1 text-black dark:text-white">
-                                 <h3 class="text-sm font-semibold">Tasks in TO DO</h3>
+                                 <h3 class="text-sm font-semibold">TO DO List</h3>
                                  <svg class="h-4 fill-current text-gray-600 dark:text-gray-500 cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                      <path d="M5 10a1.999 1.999 0 1 0 0 4 1.999 1.999 0 1 0 0-4zm7 0a1.999 1.999 0 1 0 0 4 1.999 1.999 0 1 0 0-4zm7 0a1.999 1.999 0 1 0 0 4 1.999 1.999 0 1 0 0-4z" />
                                  </svg>
@@ -440,7 +434,7 @@
                      <div>
                          <div class="rounded bg-gray-200 dark:bg-gray-800 p-3">
                              <div class="flex justify-between py-1 text-black dark:text-white">
-                                 <h3 class="text-sm font-semibold">Tasks in QA</h3>
+                                 <h3 class="text-sm font-semibold">Notes</h3>
                                  <svg class="h-4 fill-current text-gray-600 dark:text-gray-500 cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                      <path d="M5 10a1.999 1.999 0 1 0 0 4 1.999 1.999 0 1 0 0-4zm7 0a1.999 1.999 0 1 0 0 4 1.999 1.999 0 1 0 0-4zm7 0a1.999 1.999 0 1 0 0 4 1.999 1.999 0 1 0 0-4z" />
                                  </svg>
@@ -471,8 +465,12 @@
                  <!-- Contact Form -->
                  <div class="mt-8 mx-4">
                      <div class="grid grid-cols-1 md:grid-cols-2">
-                         <div class="p-6 bg-gray-100 dark:bg-gray-800 sm:rounded-lg">
-                             <h1 class="text-4xl sm:text-5xl text-gray-800 dark:text-white font-extrabold tracking-tight">NSTP OFFICE</h1>
+                         <div class="flex items-center justify-center">
+                             <img src="images/nstp-logo.png" alt="Logo" width="300" height="200">
+                         </div>
+
+                         <div class="p-6 bg-transparent sm:rounded-lg">
+                             <h1 class="text-4xl sm:text-5xl text-white dark:text-white font-extrabold tracking-tight">NSTP OFFICE</h1>
                              <p class="text-normal text-lg sm:text-2xl font-medium text-gray-600 dark:text-gray-400 mt-2">CONTACT INFORMATION</p>
 
                              <div class="flex items-center mt-8 text-gray-600 dark:text-gray-400">
@@ -499,9 +497,6 @@
                                  </svg>
                                  <div class="ml-4 text-md tracking-wide font-semibold w-80">bu-nstp@bicol-u.edu.ph</div>
                              </div>
-                         </div>
-                         <div class="flex items-center justify-center">
-                             <img src="images/nstp-logo.png" alt="Logo" width="300" height="200">
                          </div>
 
                      </div>

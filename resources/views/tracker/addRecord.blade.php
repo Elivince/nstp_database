@@ -8,12 +8,7 @@
 </head>
 
 <body>
-  <div class="bg-gray-200 dark:bg-gray-900 w-1/4 p-6">
-    <ul>
-      <li><a href="{{ url('dashboard') }}" class="text-white hover:text-red-700">Button 1</a></li>
-      <li><a href="{{ url('tracker') }}" class="text-white hover:text-red-700">Button 2</a></li>
-    </ul>
-  </div>
+
   <p>
   <form id="addRecordForm" action="/addRequest" method="POST">
     @csrf
@@ -50,7 +45,12 @@
 
     <div class="input-container">
       <i class="fa fa-key icon"></i>
-      <input class="input-field" type="text" placeholder="Remarks" name="remarks">
+      <select class="input-field" name="remarks">
+        <option value="approved" class="text-green-700 bg-green-100 dark:bg-green-700 dark:text-green-100">Approved</option>
+        <option value="pending" class="text-yellow-700 bg-yellow-100">Pending</option>
+        <option value="expired" class="text-gray-700 bg-gray-100 dark:bg-gray-700 dark:text-gray-100">Expired</option>
+        <option value="denied" class="text-red-700 bg-red-100 dark:bg-red-700 dark:text-red-100">Denied</option>
+      </select>
     </div>
 
     <button type="submit">Add</button>
