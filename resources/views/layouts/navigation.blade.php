@@ -97,7 +97,22 @@
             </div>
             <div class="pt-2 pb-3 space-y-1">
                 <x-responsive-nav-link :href="url('tracker')" :active="request()->routeIs('tracker')">
-                    {{ __('Tracker') }}
+                    {{ __('S.N Tracker') }}
+                </x-responsive-nav-link>
+            </div>
+            <div class="pt-2 pb-3 space-y-1">
+                <x-responsive-nav-link :href="url('tracker')" :active="request()->routeIs('tracker')">
+                    {{ __('Incoming') }}
+                </x-responsive-nav-link>
+            </div>
+            <div class="pt-2 pb-3 space-y-1">
+                <x-responsive-nav-link :href="url('tracker')" :active="request()->routeIs('tracker')">
+                    {{ __('Outgoing') }}
+                </x-responsive-nav-link>
+            </div>
+            <div class="pt-2 pb-3 space-y-1">
+                <x-responsive-nav-link :href="url('tracker')" :active="request()->routeIs('tracker')">
+                    {{ __('File System') }}
                 </x-responsive-nav-link>
             </div>
 

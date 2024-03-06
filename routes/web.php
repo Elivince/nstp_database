@@ -29,7 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/tracker', [TrackerController::class, 'showtable']);
+Route::get('/tracker', [TrackerController::class, 'showtable'])->name('tracker');
 
 Route::post('/addRequest', [TrackerController::class, 'addRecordToTable']);
 

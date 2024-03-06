@@ -10,83 +10,115 @@
         <!-- S.N Table -->
         <form id="addRecordForm" action="/addRequest" method="POST">
             @csrf
-            <div class="mt-4 mx-4 text-gray-500  dark:text-gray-200 leading-tight">
+            <div class="mx-40 mt-6 text-gray-500  dark:text-gray-200 leading-tight">
                 <div class="grid grid-cols-3 gap-4">
                     <div>
-                        <label for="name" class="block text-sm font-medium text-white">Name</label>
-                        <input type="text" name="name" id="name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full text-white shadow-sm sm:text-sm border-gray-300  dark:bg-gray-800 rounded-md">
+                        <label for="name" class="block text-sm font-normal text-white">Name</label>
+                        <input type="text" name="name" id="name" class="h-8 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full text-white shadow-sm sm:text-xs border-gray-300  dark:bg-gray-800 rounded-md text-sm">
                     </div>
                     <div>
-                        <label for="component" class="block text-sm font-medium text-white">Component</label>
-                        <input type="text" name="component" id="component" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block text-white  dark:bg-gray-800 w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        <label for="component" class="block text-sm font-normal text-white">Component</label>
+                        <input type="text" name="component" id="component" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block text-white  dark:bg-gray-800 w-full shadow-sm sm:text-xs border-gray-300 rounded-md">
                     </div>
                     <div>
-                        <label for="campus" class="block text-sm font-medium text-white">Campus</label>
-                        <input type="text" name="campus" id="campus" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full text-white  dark:bg-gray-800 shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        <label for="campus" class="block text-sm font-normal text-white">Campus</label>
+                        <input type="text" name="campus" id="campus" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full text-white  dark:bg-gray-800 shadow-sm sm:text-xs border-gray-300 rounded-md">
                     </div>
                     <div>
-                        <label for="course" class="block text-sm font-medium text-white">Course</label>
-                        <input type="text" name="course" id="course" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full text-white  dark:bg-gray-800 shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        <label for="course" class="block text-sm font-normal text-white">Course</label>
+                        <input type="text" name="course" id="course" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full text-white  dark:bg-gray-800 shadow-sm sm:text-xs border-gray-300 rounded-md">
                     </div>
                     <div>
-                        <label for="graduation_year" class="block text-sm font-medium text-white">Year Graduated</label>
-                        <input type="text" name="graduation_year" id="graduation_year" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full  dark:bg-gray-800 text-white shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        <label for="graduation_year" class="block text-sm font-normal text-white">Year Graduated</label>
+                        <input type="text" name="graduation_year" id="graduation_year" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full  dark:bg-gray-800 text-white shadow-sm sm:text-xs border-gray-300 rounded-md">
                     </div>
                     <div>
-                        <label for="serialno" class="block text-sm font-medium text-white">Serial Number</label>
-                        <input type="text" name="serialno" id="serialno" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm  dark:bg-gray-800 text-white border-gray-300 rounded-md">
+                        <label for="serialno" class="block text-sm font-normal text-white">Serial Number</label>
+                        <input type="text" name="serialno" id="serialno" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-xs  dark:bg-gray-800 text-white border-gray-300 rounded-md">
                     </div>
                     <div>
-                        <label for="remarks" class="block text-sm font-medium text-white">Status</label>
-                        <div class="input-container mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm  dark:bg-gray-800 text-white border-gray-300 rounded-md">
+                        <label for="remarks" class="block text-sm font-normal text-white">Status</label>
+                        <div class="input-container h-8 text-sm mt-1 block w-full shadow-sm sm:text-sm  dark:bg-gray-800 text-white rounded-md">
                             <i class=" fa fa-key icon"></i>
-                            <select class="input-field" name="remarks">
-                                <option value="approved" class="text-green-700 bg-green-100 dark:bg-green-700 dark:text-green-100">Approved</option>
-                                <option value="pending" class="text-yellow-700 bg-yellow-100">Pending</option>
-                                <option value="expired" class="text-gray-700 bg-gray-100 dark:bg-gray-700 dark:text-gray-100">Expired</option>
-                                <option value="denied" class="text-red-700 bg-red-100 dark:bg-red-700 dark:text-red-100">Denied</option>
+                            <select class="input-field text-sm mx-2 my-2 px-28 bg-transparent border-0 sm:text-sm" name="remarks">
+                                <option value="" selected disabled>Select status</option>
+                                <option value="approved" class="px-10 py-10 text-green-700 bg-green-100 dark:bg-green-700 dark:text-green-100">Approved</option>
+                                <option value="pending" class="px-10 py-10 text-yellow-700 bg-yellow-100">Pending</option>
+                                <option value="expired" class="px-10 py-10 text-gray-700 bg-gray-100 dark:bg-gray-700 dark:text-gray-100">Expired</option>
+                                <option value="denied" class="px-10 py-10 text-red-700 bg-red-100 dark:bg-red-700 dark:text-red-100">Denied</option>
                             </select>
                         </div>
                     </div>
                     <div>
-                        <label for="issued_by" class="block text-sm font-medium text-white">Issued By</label>
-                        <input type="text" name="issued_by" id="issued_by" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm  dark:bg-gray-800 text-white border-gray-300 rounded-md">
+                        <label for="issued_by" class="block text-sm font-normal text-white">Issued By</label>
+                        <input type="text" name="issued_by" id="issued_by" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-xs  dark:bg-gray-800 text-white border-gray-300 rounded-md">
                     </div>
-
-
                 </div>
             </div>
-            <div class="mt-4 mx-4">
-                <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                    Add Request
+            <div class="flex justify-center mt-6">
+                <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-normal text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    Add Record
                 </button>
             </div>
         </form>
 
-
-        <div class="mt-16 mx-4">
+        <div class="mt-16 mx-10 mb-16">
             <div class="w-full overflow-hidden rounded-lg shadow-xs">
                 <div class="w-full overflow-x-auto">
+                    <div class="flex flex-col items-start">
+                        <h2 class="text-white text-lg mb-2">List of Serial Number Request</h2>
+                    </div>
+                    <!-- component -->
+                    <div class="flex  dark:bg-gray-800 px-2 w-full max-w-[600px]">
+                        <button class="self-center flex p-1 cursor-pointer bg-[#0d1829]"> <svg width="30px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                                <g id="SVGRepo_bgCarrier" stroke-width="0" />
+
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+
+                                <g id="SVGRepo_iconCarrier">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M11.567 9.8895C12.2495 8.90124 12.114 7.5637 11.247 6.7325C10.3679 5.88806 9.02339 5.75928 7.99998 6.4215C7.57983 6.69308 7.25013 7.0837 7.05298 7.5435C6.85867 7.99881 6.80774 8.50252 6.90698 8.9875C7.00665 9.47472 7.25054 9.92071 7.60698 10.2675C7.97021 10.6186 8.42786 10.8563 8.92398 10.9515C9.42353 11.049 9.94062 11.0001 10.413 10.8105C10.8798 10.6237 11.2812 10.3033 11.567 9.8895Z" stroke="#ff5c5c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12.433 17.8895C11.7504 16.9012 11.886 15.5637 12.753 14.7325C13.6321 13.8881 14.9766 13.7593 16 14.4215C16.4202 14.6931 16.7498 15.0837 16.947 15.5435C17.1413 15.9988 17.1922 16.5025 17.093 16.9875C16.9933 17.4747 16.7494 17.9207 16.393 18.2675C16.0298 18.6186 15.5721 18.8563 15.076 18.9515C14.5773 19.0481 14.0614 18.9988 13.59 18.8095C13.1222 18.6234 12.7197 18.3034 12.433 17.8895V17.8895Z" stroke="#ff5c5c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M12 7.75049C11.5858 7.75049 11.25 8.08627 11.25 8.50049C11.25 8.9147 11.5858 9.25049 12 9.25049V7.75049ZM19 9.25049C19.4142 9.25049 19.75 8.9147 19.75 8.50049C19.75 8.08627 19.4142 7.75049 19 7.75049V9.25049ZM6.857 9.25049C7.27121 9.25049 7.607 8.9147 7.607 8.50049C7.607 8.08627 7.27121 7.75049 6.857 7.75049V9.25049ZM5 7.75049C4.58579 7.75049 4.25 8.08627 4.25 8.50049C4.25 8.9147 4.58579 9.25049 5 9.25049V7.75049ZM12 17.2505C12.4142 17.2505 12.75 16.9147 12.75 16.5005C12.75 16.0863 12.4142 15.7505 12 15.7505V17.2505ZM5 15.7505C4.58579 15.7505 4.25 16.0863 4.25 16.5005C4.25 16.9147 4.58579 17.2505 5 17.2505V15.7505ZM17.143 15.7505C16.7288 15.7505 16.393 16.0863 16.393 16.5005C16.393 16.9147 16.7288 17.2505 17.143 17.2505V15.7505ZM19 17.2505C19.4142 17.2505 19.75 16.9147 19.75 16.5005C19.75 16.0863 19.4142 15.7505 19 15.7505V17.2505ZM12 9.25049H19V7.75049H12V9.25049ZM6.857 7.75049H5V9.25049H6.857V7.75049ZM12 15.7505H5V17.2505H12V15.7505ZM17.143 17.2505H19V15.7505H17.143V17.2505Z" fill="#ff5c5c" />
+                                </g>
+
+                            </svg></button>
+
+                        <input type="text" class="w-full  dark:bg-gray-800 flex bg-transparent pl-2 text-[#cccccc] text-sm outline-0" placeholder="Search name" />
+                        <button type="submit" class="relative p-2  bg-[#0d1829] rounded-full">
+                            <svg width="30px" height="15px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                                <g id="SVGRepo_bgCarrier" stroke-width="0" />
+
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+
+                                <g id="SVGRepo_iconCarrier">
+                                    <path d="M14.9536 14.9458L21 21M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </g>
+
+                            </svg>
+                        </button>
+                    </div>
                     <table class="w-full">
                         <thead>
                             <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                                 <th class="px-4 py-3">Date Issued</th>
                                 <th class="px-4 py-3">Name</th>
-                                <th class="px-4 py-3">Component</th>
+                                <th class="px-2 py-3">Component</th>
                                 <th class="px-4 py-3">Campus</th>
-                                <th class="px-4 py-3">Course</th>
-                                <th class="px-4 py-3">Year Graduated</th>
-                                <th class="px-4 py-3">Serial Number</th>
+                                <th class="px-5 py-3">Course</th>
+                                <th class="px-3 py-3">S.Y Grad.</th>
+                                <th class="px-3 py-3">Serial Number</th>
                                 <th class="px-4 py-3">Status</th>
                                 <th class="px-4 py-3">Issued By</th>
-                                <th class="px-4 py-3">Actions</th>
-                                <th class="px-4 py-3"></th>
+                                <th class="px-1 py-3">Actions</th>
+                                <th class="px-0 py-3"></th>
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
                             @foreach ($requests as $request)
                             <!-- Add your data here -->
-                            <tr class="bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-white dark:text-gray-400">
+                            <tr class="text-sm bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-white dark:text-gray-400">
                                 <td class="px-4 py-3 ">{{ $request->date }}</td>
                                 <td class="px-4 py-3">{{ $request->name }}</td>
                                 <td class="px-4 py-3">{{ $request->component }}</td>
@@ -159,5 +191,4 @@
             </div>
         </div>
     </div>
-
 </x-app-layout>
