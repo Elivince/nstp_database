@@ -25,6 +25,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/calendar', function () {
+    return view('calendar');
+})->name('calendar');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -35,6 +39,8 @@ Route::get('/tracker', [TrackerController::class, 'showtable'])->name('tracker')
 Route::get('/incoming', [TrackerControllerforIncoming::class, 'showtable'])->name('incoming');
 Route::get('/outgoing', [TrackerControllerforOutgoing::class, 'showtable'])->name('outgoing');
 Route::get('/file-system', [TrackerController::class, 'showtable'])->name('file-system');
+
+
 
 Route::post('/addRequest', [TrackerController::class, 'addRecordToTable']);
 
