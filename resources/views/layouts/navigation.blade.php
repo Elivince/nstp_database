@@ -27,17 +27,17 @@
                         </x-nav-link>
                     </div>
                     <div class="flex space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <x-nav-link :href="url('tracker')" :active="request()->routeIs('tracker')">
+                        <x-nav-link :href="url('incoming')" :active="request()->routeIs('incoming')">
                             {{ __('Incoming') }}
                         </x-nav-link>
                     </div>
                     <div class="flex space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <x-nav-link :href="url('tracker')" :active="request()->routeIs('tracker')">
+                        <x-nav-link :href="url('outgoing')" :active="request()->routeIs('outgoing')">
                             {{ __('Outgoing') }}
                         </x-nav-link>
                     </div>
                     <div class="flex space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <x-nav-link :href="url('tracker')" :active="request()->routeIs('tracker')">
+                        <x-nav-link :href="url('file-system')" :active="request()->routeIs('file-system')">
                             {{ __('File System') }}
                         </x-nav-link>
                     </div>
@@ -101,17 +101,17 @@
                 </x-responsive-nav-link>
             </div>
             <div class="pt-2 pb-3 space-y-1">
-                <x-responsive-nav-link :href="url('tracker')" :active="request()->routeIs('tracker')">
+                <x-responsive-nav-link :href="url('tracker')" :active="request()->routeIs('incoming')">
                     {{ __('Incoming') }}
                 </x-responsive-nav-link>
             </div>
             <div class="pt-2 pb-3 space-y-1">
-                <x-responsive-nav-link :href="url('tracker')" :active="request()->routeIs('tracker')">
+                <x-responsive-nav-link :href="url('tracker')" :active="request()->routeIs('outgoing')">
                     {{ __('Outgoing') }}
                 </x-responsive-nav-link>
             </div>
             <div class="pt-2 pb-3 space-y-1">
-                <x-responsive-nav-link :href="url('tracker')" :active="request()->routeIs('tracker')">
+                <x-responsive-nav-link :href="url('tracker')" :active="request()->routeIs('file-system')">
                     {{ __('File System') }}
                 </x-responsive-nav-link>
             </div>

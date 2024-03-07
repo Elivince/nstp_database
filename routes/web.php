@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TrackerController;
+use App\Http\Controllers\TrackerControllerforIncoming;
+use App\Http\Controllers\TrackerControllerforOutgoing;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +32,9 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/tracker', [TrackerController::class, 'showtable'])->name('tracker');
+Route::get('/incoming', [TrackerControllerforIncoming::class, 'showtable'])->name('incoming');
+Route::get('/outgoing', [TrackerControllerforOutgoing::class, 'showtable'])->name('outgoing');
+Route::get('/file-system', [TrackerController::class, 'showtable'])->name('file-system');
 
 Route::post('/addRequest', [TrackerController::class, 'addRecordToTable']);
 
