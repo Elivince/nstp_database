@@ -81,8 +81,6 @@ class TrackerController extends Controller
 
     public function deleteRecordFromTable(Tracker $request)
     {
-    public function deleteRecordFromTable(Tracker $request)
-    {
         $request->delete();
 
         return redirect('/tracker');
