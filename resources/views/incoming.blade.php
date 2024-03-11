@@ -8,38 +8,30 @@
     </div>
     <div class="flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
         <!-- S.N Table -->
-        <form id="addRecordForm" action="/addRequest" method="POST">
+        <form id="addRecordForm" action="/addIncoming" method="POST">
             @csrf
             <div class="mx-40 mt-6 text-gray-500  dark:text-gray-200 leading-tight">
                 <div class="grid grid-cols-3 gap-4">
                     <div>
-                        <label for="name" class="block text-sm font-normal text-white">Code Number</label>
-                        <input type="text" name="name" id="name" class="h-8 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full text-white shadow-sm sm:text-xs border-gray-300  dark:bg-gray-800 rounded-md text-sm">
+                        <label for="from_office" class="block text-sm font-normal text-white">From what office</label>
+                        <input type="text" name="from_office" id="from_office" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full text-white  dark:bg-gray-800 shadow-sm sm:text-xs border-gray-300 rounded-md">
                     </div>
                     <div>
-                        <label for="component" class="block text-sm font-normal text-white">Received by</label>
-                        <input type="text" name="component" id="component" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block text-white  dark:bg-gray-800 w-full shadow-sm sm:text-xs border-gray-300 rounded-md">
+                        <label for="subject" class="block text-sm font-normal text-white">Subject</label>
+                        <input type="text" name="subject" id="subject" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full text-white  dark:bg-gray-800 shadow-sm sm:text-xs border-gray-300 rounded-md">
                     </div>
                     <div>
-                        <label for="campus" class="block text-sm font-normal text-white">From what office</label>
-                        <input type="text" name="campus" id="campus" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full text-white  dark:bg-gray-800 shadow-sm sm:text-xs border-gray-300 rounded-md">
+                        <label for="remarks" class="block text-sm font-normal text-white">Remarks</label>
+                        <input type="text" name="remarks" id="remarks" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full  dark:bg-gray-800 text-white shadow-sm sm:text-xs border-gray-300 rounded-md">
                     </div>
                     <div>
-                        <label for="course" class="block text-sm font-normal text-white">Subject</label>
-                        <input type="text" name="course" id="course" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full text-white  dark:bg-gray-800 shadow-sm sm:text-xs border-gray-300 rounded-md">
-                    </div>
-                    <div>
-                        <label for="graduation_year" class="block text-sm font-normal text-white">Remarks</label>
-                        <input type="text" name="graduation_year" id="graduation_year" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full  dark:bg-gray-800 text-white shadow-sm sm:text-xs border-gray-300 rounded-md">
-                    </div>
-                    <div>
-                        <label for="serialno" class="block text-sm font-normal text-white">Action</label>
-                        <input type="text" name="serialno" id="serialno" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-xs  dark:bg-gray-800 text-white border-gray-300 rounded-md">
+                        <label for="action" class="block text-sm font-normal text-white">Action</label>
+                        <input type="text" name="action" id="action" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-xs  dark:bg-gray-800 text-white border-gray-300 rounded-md">
                     </div>
 
                     <div>
-                        <label for="issued_by" class="block text-sm font-normal text-white">Date of Action</label>
-                        <input type="text" name="issued_by" id="issued_by" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-xs  dark:bg-gray-800 text-white border-gray-300 rounded-md">
+                        <label for="action_date" class="block text-sm font-normal text-white">Date of Action</label>
+                        <input type="text" name="action_date" id="action_date" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-xs  dark:bg-gray-800 text-white border-gray-300 rounded-md">
                     </div>
                 </div>
             </div>
@@ -90,7 +82,7 @@
                     <table class="w-full">
                         <thead>
                             <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                                <th class="px-4 py-3">No.</th>
+                                <th class="px-4 py-3">Date</th>
                                 <th class="px-4 py-3">Code number</th>
                                 <th class="px-2 py-3">Received by</th>
                                 <th class="px-4 py-3">From what office</th>
@@ -98,24 +90,25 @@
                                 <th class="px-3 py-3">Remarks</th>
                                 <th class="px-3 py-3">Action</th>
                                 <th class="px-4 py-3">Date of Action</th>
+                                <th class="px-4 py-3">Received_by</th>
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-                            @foreach ($requests as $request)
+                            @foreach ($incomings as $incoming)
                             <!-- Add your data here -->
                             <tr class="text-sm bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-white dark:text-gray-400">
-                                <td class="px-4 py-3 ">{{ $request->date }}</td>
-                                <td class="px-4 py-3">{{ $request->name }}</td>
-                                <td class="px-4 py-3">{{ $request->component }}</td>
-                                <td class="px-4 py-3">{{ $request->campus }}</td>
-                                <td class="px-4 py-3">{{ $request->course }}</td>
-                                <td class="px-4 py-3">{{ $request->graduation_year }}</td>
-                                <td class="px-4 py-3">{{ $request->serialno }}</td>
-                                <td class="px-4 py-3">{{ $request->remarks }}</td>
-                                <td class="px-4 py-3">{{ $request->issued_by }}</td>
+                                <td class="px-4 py-3">{{ $incoming->date }}</td>
+                                <td class="px-4 py-3">{{ "NSTP-" . \Carbon\Carbon::parse($incoming->date)->format('Y-m') . "-" . $incoming->incoming_no }}</td>
+                                <td class="px-4 py-3">{{ $incoming->received_by }}</td>
+                                <td class="px-4 py-3">{{ $incoming->from_office }}</td>
+                                <td class="px-4 py-3">{{ $incoming->subject }}</td>
+                                <td class="px-4 py-3">{{ $incoming->remarks }}</td>
+                                <td class="px-4 py-3">{{ $incoming->action }}</td>
+                                <td class="px-4 py-3">{{ $incoming->action_date }}</td>
+                                <td class="px-4 py-3">{{ $incoming->action_recieved_by }}</td>
                                 <td class="px-4 py-3"><a href="#">Edit</a>
                                 <td class="px-4 py-3">
-                                    <form action="/deleteRequest/{{ $request->request_id }}" method="POST">
+                                    <form action="/deleteRequest/{{ $incoming->incoming_no }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button>Delete</button>
