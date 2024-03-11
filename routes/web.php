@@ -1,10 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TrackerController;
-use App\Http\Controllers\TrackerControllerforIncoming;
+use App\Http\Controllers\IncomingController;
 use App\Http\Controllers\TrackerControllerforOutgoing;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,11 +38,8 @@ Route::middleware('auth')->group(function () {
 // SERIAL NO. REQUEST TRACKER ROUTES//
 // Show Table
 Route::get('/tracker', [TrackerController::class, 'showtable'])->name('tracker');
-Route::get('/incoming', [TrackerControllerforIncoming::class, 'showtable'])->name('incoming');
 Route::get('/outgoing', [TrackerControllerforOutgoing::class, 'showtable'])->name('outgoing');
 Route::get('/file-system', [TrackerController::class, 'showtable'])->name('file-system');
-
-
 
 // Add Function
 Route::get('/viewAddRequest', [TrackerController::class, 'showAddRequestPage']);
@@ -54,5 +51,12 @@ Route::put('/viewEditRequest/{request}', [TrackerController::class, 'editRecordF
 
 // Delete Function
 Route::delete('/deleteRequest/{request}', [TrackerController::class, 'deleteRecordFromTable']);
+
+// INCOMING TRACKER ROUTES//
+Route::get('/incoming', [IncomingController::class, 'showtable'])->name('incoming');
+
+Route::post('/addIncoming', [IncomingController::class, 'addRecordToTable']);
+
+
 
 require __DIR__ . '/auth.php';
