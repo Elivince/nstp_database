@@ -17,3 +17,10 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+.prettierrc.json
+package.json
+package-lock.json
+composer.json
+composer.lock
+tailwind.config.js
+vite.config.js

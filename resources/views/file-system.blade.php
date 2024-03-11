@@ -3,7 +3,6 @@
         <div class="flex flex-col items-center justify-center">
             <h1 class="text-4xl font-bold text-white">NSTP Database</h1>
             <p class="text-white">Welcome to the NSTP Database</p>
-            <li><a href="{{ url('viewAddRequest') }}" class="text-white hover:text-red-700">Add</a></li>
         </div>
 
     </div>
@@ -103,15 +102,15 @@
                     <table class="w-full">
                         <thead>
                             <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                                <th class="px-4 py-3">@sortablelink('date', 'Date Issued')</th>
-                                <th class="px-4 py-3">@sortablelink('name', 'Name')</th>
-                                <th class="px-2 py-3">@sortablelink('name', 'Component')</th>
-                                <th class="px-4 py-3">@sortablelink('name', 'Campus')</th>
-                                <th class="px-5 py-3">@sortablelink('name', 'Course')</th>
-                                <th class="px-3 py-3">@sortablelink('date', 'Year Graduated')</th>
+                                <th class="px-4 py-3">Date Issued</th>
+                                <th class="px-4 py-3">Name</th>
+                                <th class="px-2 py-3">Component</th>
+                                <th class="px-4 py-3">Campus</th>
+                                <th class="px-5 py-3">Course</th>
+                                <th class="px-3 py-3">S.Y Grad.</th>
                                 <th class="px-3 py-3">Serial Number</th>
                                 <th class="px-4 py-3">Status</th>
-                                <th class="px-4 py-3">@sortablelink('name', 'Issued by')</th>
+                                <th class="px-4 py-3">Issued By</th>
                                 <th class="px-1 py-3">Actions</th>
                                 <th class="px-0 py-3"></th>
                             </tr>
@@ -126,10 +125,10 @@
                                 <td class="px-4 py-3">{{ $request->campus }}</td>
                                 <td class="px-4 py-3">{{ $request->course }}</td>
                                 <td class="px-4 py-3">{{ $request->graduation_year }}</td>
-                                <td class="px-4 py-3">{{ $request->serial_no }}</td>
+                                <td class="px-4 py-3">{{ $request->serialno }}</td>
                                 <td class="px-4 py-3">{{ $request->remarks }}</td>
                                 <td class="px-4 py-3">{{ $request->issued_by }}</td>
-                                <td class="px-4 py-3"><a href="/viewEditRequest/{{$request->request_id}}">Edit</a>
+                                <td class="px-4 py-3"><a href="#">Edit</a>
                                 <td class="px-4 py-3">
                                     <form action="/deleteRequest/{{ $request->request_id }}" method="POST">
                                         @csrf
@@ -142,7 +141,6 @@
                         </tbody>
 
                     </table>
-                    </div>
                 </div>
                 <div class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800">
                     <span class="flex items-center col-span-3"> Showing 21-30 of 100 </span>

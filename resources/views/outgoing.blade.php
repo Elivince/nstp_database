@@ -3,7 +3,6 @@
         <div class="flex flex-col items-center justify-center">
             <h1 class="text-4xl font-bold text-white">NSTP Database</h1>
             <p class="text-white">Welcome to the NSTP Database</p>
-            <li><a href="{{ url('viewAddRequest') }}" class="text-white hover:text-red-700">Add</a></li>
         </div>
 
     </div>
@@ -14,45 +13,28 @@
             <div class="mx-40 mt-6 text-gray-500  dark:text-gray-200 leading-tight">
                 <div class="grid grid-cols-3 gap-4">
                     <div>
-                        <label for="name" class="block text-sm font-normal text-white">Name</label>
+                        <label for="name" class="block text-sm font-normal text-white">Code Number</label>
                         <input type="text" name="name" id="name" class="h-8 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full text-white shadow-sm sm:text-xs border-gray-300  dark:bg-gray-800 rounded-md text-sm">
                     </div>
                     <div>
-                        <label for="component" class="block text-sm font-normal text-white">Component</label>
+                        <label for="component" class="block text-sm font-normal text-white">For</label>
                         <input type="text" name="component" id="component" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block text-white  dark:bg-gray-800 w-full shadow-sm sm:text-xs border-gray-300 rounded-md">
                     </div>
                     <div>
-                        <label for="campus" class="block text-sm font-normal text-white">Campus</label>
+                        <label for="campus" class="block text-sm font-normal text-white">Subject</label>
                         <input type="text" name="campus" id="campus" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full text-white  dark:bg-gray-800 shadow-sm sm:text-xs border-gray-300 rounded-md">
                     </div>
                     <div>
-                        <label for="course" class="block text-sm font-normal text-white">Course</label>
+                        <label for="course" class="block text-sm font-normal text-white">Remarks</label>
                         <input type="text" name="course" id="course" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full text-white  dark:bg-gray-800 shadow-sm sm:text-xs border-gray-300 rounded-md">
                     </div>
                     <div>
-                        <label for="graduation_year" class="block text-sm font-normal text-white">Year Graduated</label>
+                        <label for="graduation_year" class="block text-sm font-normal text-white">Action</label>
                         <input type="text" name="graduation_year" id="graduation_year" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full  dark:bg-gray-800 text-white shadow-sm sm:text-xs border-gray-300 rounded-md">
                     </div>
                     <div>
-                        <label for="serialno" class="block text-sm font-normal text-white">Serial Number</label>
+                        <label for="serialno" class="block text-sm font-normal text-white">Date</label>
                         <input type="text" name="serialno" id="serialno" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-xs  dark:bg-gray-800 text-white border-gray-300 rounded-md">
-                    </div>
-                    <div>
-                        <label for="remarks" class="block text-sm font-normal text-white">Status</label>
-                        <div class="input-container h-8 text-sm mt-1 block w-full shadow-sm sm:text-sm  dark:bg-gray-800 text-white rounded-md">
-                            <i class=" fa fa-key icon"></i>
-                            <select class="input-field text-sm mx-2 my-2 px-28 bg-transparent border-0 sm:text-sm" name="remarks">
-                                <option value="" selected disabled>Select status</option>
-                                <option value="approved" class="px-10 py-10 text-green-700 bg-green-100 dark:bg-green-700 dark:text-green-100">Approved</option>
-                                <option value="pending" class="px-10 py-10 text-yellow-700 bg-yellow-100">Pending</option>
-                                <option value="expired" class="px-10 py-10 text-gray-700 bg-gray-100 dark:bg-gray-700 dark:text-gray-100">Expired</option>
-                                <option value="denied" class="px-10 py-10 text-red-700 bg-red-100 dark:bg-red-700 dark:text-red-100">Denied</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div>
-                        <label for="issued_by" class="block text-sm font-normal text-white">Issued By</label>
-                        <input type="text" name="issued_by" id="issued_by" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-xs  dark:bg-gray-800 text-white border-gray-300 rounded-md">
                     </div>
                 </div>
             </div>
@@ -67,7 +49,7 @@
             <div class="w-full overflow-hidden rounded-lg shadow-xs">
                 <div class="w-full overflow-x-auto">
                     <div class="flex flex-col items-start">
-                        <h2 class="text-white text-lg mb-2">List of Serial Number Request</h2>
+                        <h2 class="text-white text-lg mb-2">List of Outgoing Communication</h2>
                     </div>
                     <!-- component -->
                     <div class="flex  dark:bg-gray-800 px-2 w-full max-w-[600px]">
@@ -103,17 +85,13 @@
                     <table class="w-full">
                         <thead>
                             <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                                <th class="px-4 py-3">@sortablelink('date', 'Date Issued')</th>
-                                <th class="px-4 py-3">@sortablelink('name', 'Name')</th>
-                                <th class="px-2 py-3">@sortablelink('name', 'Component')</th>
-                                <th class="px-4 py-3">@sortablelink('name', 'Campus')</th>
-                                <th class="px-5 py-3">@sortablelink('name', 'Course')</th>
-                                <th class="px-3 py-3">@sortablelink('date', 'Year Graduated')</th>
-                                <th class="px-3 py-3">Serial Number</th>
-                                <th class="px-4 py-3">Status</th>
-                                <th class="px-4 py-3">@sortablelink('name', 'Issued by')</th>
-                                <th class="px-1 py-3">Actions</th>
-                                <th class="px-0 py-3"></th>
+                                <th class="px-4 py-3">No.</th>
+                                <th class="px-4 py-3">Code Number</th>
+                                <th class="px-2 py-3">For</th>
+                                <th class="px-4 py-3">Subject</th>
+                                <th class="px-5 py-3">Remarks</th>
+                                <th class="px-3 py-3">Action</th>
+                                <th class="px-3 py-3">Date</th>
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
@@ -126,10 +104,10 @@
                                 <td class="px-4 py-3">{{ $request->campus }}</td>
                                 <td class="px-4 py-3">{{ $request->course }}</td>
                                 <td class="px-4 py-3">{{ $request->graduation_year }}</td>
-                                <td class="px-4 py-3">{{ $request->serial_no }}</td>
+                                <td class="px-4 py-3">{{ $request->serialno }}</td>
                                 <td class="px-4 py-3">{{ $request->remarks }}</td>
                                 <td class="px-4 py-3">{{ $request->issued_by }}</td>
-                                <td class="px-4 py-3"><a href="/viewEditRequest/{{$request->request_id}}">Edit</a>
+                                <td class="px-4 py-3"><a href="#">Edit</a>
                                 <td class="px-4 py-3">
                                     <form action="/deleteRequest/{{ $request->request_id }}" method="POST">
                                         @csrf
@@ -142,7 +120,6 @@
                         </tbody>
 
                     </table>
-                    </div>
                 </div>
                 <div class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800">
                     <span class="flex items-center col-span-3"> Showing 21-30 of 100 </span>
