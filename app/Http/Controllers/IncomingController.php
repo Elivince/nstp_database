@@ -31,8 +31,37 @@ class IncomingController extends Controller
         $incomingFields['from_office'] = strip_tags($incomingFields['from_office']);
         $incomingFields['subject'] = strip_tags($incomingFields['subject']);
         $incomingFields['remarks'] = strip_tags($incomingFields['remarks']);
+        $incomingFields['action'] = strip_tags($incomingFields['action']);
+        $incomingFields['action_date'] = strip_tags($incomingFields['action_date']);
+
 
         Incoming::create($incomingFields);
+
+        return redirect('/incoming');
+    }
+
+    public function showEditRequestPage(Incoming $incoming)
+    {
+        return view('editRequest', ['request' => $incoming]);
+    }
+
+    public function editRecordFromTable(Incoming $incoming, Request $request)
+    {
+        $incomingFields = $incoming->validate([
+            'from_office' => 'required',
+            'subject' => 'required',
+            'remarks'=> 'required',
+            'action' => 'nullable',
+            'action_date' => 'nullable'
+        ]);
+
+        $incomingFields['from_office'] = strip_tags($incomingFields['from_office']);
+        $incomingFields['subject'] = strip_tags($incomingFields['subject']);
+        $incomingFields['remarks'] = strip_tags($incomingFields['remarks']);
+        $incomingFields['action'] = strip_tags($incomingFields['action']);
+        $incomingFields['action_date'] = strip_tags($incomingFields['action_date']);
+
+        $request->update($incomingFields);
 
         return redirect('/incoming');
     }

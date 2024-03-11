@@ -36,20 +36,13 @@ Route::middleware('auth')->group(function () {
 });
 
 // SERIAL NO. REQUEST TRACKER ROUTES//
-// Show Table
 Route::get('/tracker', [TrackerController::class, 'showtable'])->name('tracker');
-Route::get('/outgoing', [TrackerControllerforOutgoing::class, 'showtable'])->name('outgoing');
-Route::get('/file-system', [TrackerController::class, 'showtable'])->name('file-system');
 
-// Add Function
-Route::get('/viewAddRequest', [TrackerController::class, 'showAddRequestPage']);
 Route::post('/addRequest', [TrackerController::class, 'addRecordToTable']);
 
-// Edit Function
 Route::get('/viewEditRequest/{request}', [TrackerController::class, 'showEditRequestPage']);
 Route::put('/viewEditRequest/{request}', [TrackerController::class, 'editRecordFromTable']);
 
-// Delete Function
 Route::delete('/deleteRequest/{request}', [TrackerController::class, 'deleteRecordFromTable']);
 
 // INCOMING TRACKER ROUTES//
@@ -57,6 +50,13 @@ Route::get('/incoming', [IncomingController::class, 'showtable'])->name('incomin
 
 Route::post('/addIncoming', [IncomingController::class, 'addRecordToTable']);
 
+// OUTGOING TRACKER ROUTES//
+Route::get('/outgoing', [TrackerControllerforOutgoing::class, 'showtable'])->name('outgoing');
 
+// FILE SYSTEM TRACKER ROUTES//
+Route::get('/file-system', [TrackerController::class, 'showtable'])->name('file-system');
+
+Route::get('/viewEditRequest/{request}', [TrackerController::class, 'showEditRequestPage']);
+Route::put('/viewEditRequest/{request}', [TrackerController::class, 'editRecordFromTable']);
 
 require __DIR__ . '/auth.php';
