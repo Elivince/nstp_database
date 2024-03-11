@@ -3,7 +3,6 @@
         <div class="flex flex-col items-center justify-center">
             <h1 class="text-4xl font-bold text-white">NSTP Database</h1>
             <p class="text-white">Welcome to the NSTP Database</p>
-            <li><a href="{{ url('viewAddRequest') }}" class="text-white hover:text-red-700">Add</a></li>
         </div>
 
     </div>
@@ -34,8 +33,8 @@
                         <input type="text" name="graduation_year" id="graduation_year" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full  dark:bg-gray-800 text-white shadow-sm sm:text-xs border-gray-300 rounded-md">
                     </div>
                     <div>
-                        <label for="serialno" class="block text-sm font-normal text-white">Serial Number</label>
-                        <input type="text" name="serialno" id="serialno" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-xs  dark:bg-gray-800 text-white border-gray-300 rounded-md">
+                        <label for="serial_no" class="block text-sm font-normal text-white">Serial Number</label>
+                        <input type="text" name="serial_no" id="serialno" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-xs  dark:bg-gray-800 text-white border-gray-300 rounded-md">
                     </div>
                     <div>
                         <label for="remarks" class="block text-sm font-normal text-white">Status</label>
@@ -50,18 +49,12 @@
                             </select>
                         </div>
                     </div>
-                    <div>
-                        <label for="issued_by" class="block text-sm font-normal text-white">Issued By</label>
-                        <input type="text" name="issued_by" id="issued_by" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-xs  dark:bg-gray-800 text-white border-gray-300 rounded-md">
-                    </div>
                 </div>
             </div>
             <div class="flex justify-center mt-6">
-                <a href="{{ url('viewAddRequest') }}">
                 <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-normal text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                     Add Record
                 </button>
-            </a>
             </div>
         </form>
 
