@@ -40,14 +40,14 @@ class IncomingController extends Controller
         return redirect('/incoming');
     }
 
-    public function showEditRequestPage(Incoming $incoming)
+    public function showEditIncomingPage(Incoming $incoming)
     {
-        return view('editRequest', ['request' => $incoming]);
+        return view('editIncoming', ['incoming' => $incoming]);
     }
 
     public function editRecordFromTable(Incoming $incoming, Request $request)
     {
-        $incomingFields = $incoming->validate([
+        $incomingFields = $request->validate([
             'from_office' => 'required',
             'subject' => 'required',
             'remarks'=> 'required',
@@ -61,7 +61,7 @@ class IncomingController extends Controller
         $incomingFields['action'] = strip_tags($incomingFields['action']);
         $incomingFields['action_date'] = strip_tags($incomingFields['action_date']);
 
-        $request->update($incomingFields);
+        $incoming->update($incomingFields);
 
         return redirect('/incoming');
     }
