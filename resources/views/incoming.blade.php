@@ -108,7 +108,7 @@
                                 <td class="px-4 py-3">{{ $incoming->action_recieved_by }}</td>
                                 <td class="px-4 py-3"><a href="#">Edit</a>
                                 <td class="px-4 py-3">
-                                    <form action="/deleteRequest/{{ $incoming->incoming_no }}" method="POST">
+                                    <form action="/deleteIncoming/{{ $incoming->incoming_no }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button>Delete</button>

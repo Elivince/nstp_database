@@ -50,6 +50,8 @@ Route::get('/incoming', [IncomingController::class, 'showtable'])->name('incomin
 
 Route::post('/addIncoming', [IncomingController::class, 'addRecordToTable']);
 
+Route::delete('/deleteIncoming/{incoming}', [IncomingController::class, 'deleteRecordFromTable']);
+
 // OUTGOING TRACKER ROUTES//
 Route::get('/outgoing', [TrackerControllerforOutgoing::class, 'showtable'])->name('outgoing');
 
