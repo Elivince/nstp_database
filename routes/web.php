@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TrackerController;
 use App\Http\Controllers\IncomingController;
+use App\Http\Controllers\OutgoingController;
 use App\Http\Controllers\TrackerControllerforOutgoing;
 
 /*
@@ -36,20 +37,13 @@ Route::middleware('auth')->group(function () {
 });
 
 // SERIAL NO. REQUEST TRACKER ROUTES//
-// Show Table
 Route::get('/tracker', [TrackerController::class, 'showtable'])->name('tracker');
-Route::get('/outgoing', [TrackerControllerforOutgoing::class, 'showtable'])->name('outgoing');
-Route::get('/file-system', [TrackerController::class, 'showtable'])->name('file-system');
 
-// Add Function
-Route::get('/viewAddRequest', [TrackerController::class, 'showAddRequestPage']);
 Route::post('/addRequest', [TrackerController::class, 'addRecordToTable']);
 
-// Edit Function
 Route::get('/viewEditRequest/{request}', [TrackerController::class, 'showEditRequestPage']);
 Route::put('/viewEditRequest/{request}', [TrackerController::class, 'editRecordFromTable']);
 
-// Delete Function
 Route::delete('/deleteRequest/{request}', [TrackerController::class, 'deleteRecordFromTable']);
 
 // INCOMING TRACKER ROUTES//
@@ -57,6 +51,22 @@ Route::get('/incoming', [IncomingController::class, 'showtable'])->name('incomin
 
 Route::post('/addIncoming', [IncomingController::class, 'addRecordToTable']);
 
+Route::get('/viewEditIncoming/{incoming}', [IncomingController::class, 'showEditIncomingPage']);
+Route::put('/viewEditIncoming/{incoming}', [IncomingController::class, 'editRecordFromTable']);
 
+Route::delete('/deleteIncoming/{incoming}', [IncomingController::class, 'deleteRecordFromTable']);
+
+// OUTGOING TRACKER ROUTES//
+Route::get('/outgoing', [OutgoingController::class, 'showtable'])->name('outgoing');
+
+Route::post('/addOutgoing', [OutgoingController::class, 'addRecordToTable']);
+
+Route::delete('/deleteOutgoing/{outgoing}', [OutgoingController::class, 'deleteRecordFromTable']);
+
+// FILE SYSTEM TRACKER ROUTES//
+Route::get('/file-system', [TrackerController::class, 'showtable'])->name('file-system');
+
+Route::get('/viewEditRequest/{request}', [TrackerController::class, 'showEditRequestPage']);
+Route::put('/viewEditRequest/{request}', [TrackerController::class, 'editRecordFromTable']);
 
 require __DIR__ . '/auth.php';

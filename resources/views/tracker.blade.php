@@ -99,12 +99,12 @@
                         <thead>
                             <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                                 <th class="px-4 py-3">@sortablelink('date', 'Date Issued')</th>
+                                <th class="px-3 py-3">Serial Number</th>
                                 <th class="px-4 py-3">@sortablelink('name', 'Name')</th>
                                 <th class="px-2 py-3">@sortablelink('name', 'Component')</th>
                                 <th class="px-4 py-3">@sortablelink('name', 'Campus')</th>
                                 <th class="px-5 py-3">@sortablelink('name', 'Course')</th>
                                 <th class="px-3 py-3">@sortablelink('date', 'Year Graduated')</th>
-                                <th class="px-3 py-3">Serial Number</th>
                                 <th class="px-4 py-3">Status</th>
                                 <th class="px-4 py-3">@sortablelink('name', 'Issued by')</th>
                                 <th class="px-1 py-3">Actions</th>
@@ -116,12 +116,12 @@
                             <!-- Add your data here -->
                             <tr class="text-sm bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-white dark:text-gray-400">
                                 <td class="px-4 py-3 ">{{ $request->date }}</td>
+                                <td class="px-4 py-3">{{ $request->serial_no }}</td>
                                 <td class="px-4 py-3">{{ $request->name }}</td>
                                 <td class="px-4 py-3">{{ $request->component }}</td>
                                 <td class="px-4 py-3">{{ $request->campus }}</td>
                                 <td class="px-4 py-3">{{ $request->course }}</td>
                                 <td class="px-4 py-3">{{ $request->graduation_year }}</td>
-                                <td class="px-4 py-3">{{ $request->serial_no }}</td>
                                 <td class="px-4 py-3">{{ $request->remarks }}</td>
                                 <td class="px-4 py-3">{{ $request->issued_by }}</td>
                                 <td class="px-4 py-3"><a href="/viewEditRequest/{{$request->request_id}}">Edit</a>
