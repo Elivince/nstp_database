@@ -15,11 +15,6 @@ class TrackerController extends Controller
         return view('tracker', ['requests' => $requests]);
     }
 
-    public function showAddRequestPage()
-    {
-        return view('addRequest');
-    }
-
     public function addRecordToTable(Request $request)
     {
         $incomingFields = $request->validate([

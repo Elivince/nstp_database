@@ -178,12 +178,12 @@
                             <!-- Add your data here -->
                             <tr class="text-sm bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-white dark:text-gray-400">
                                 <td class="px-4 py-3 ">{{ $request->date }}</td>
+                                <td class="px-4 py-3">{{ $request->serial_no }}</td>
                                 <td class="px-4 py-3">{{ $request->name }}</td>
                                 <td class="px-4 py-3">{{ $request->component }}</td>
                                 <td class="px-4 py-3">{{ $request->campus }}</td>
                                 <td class="px-4 py-3">{{ $request->course }}</td>
                                 <td class="px-4 py-3">{{ $request->graduation_year }}</td>
-                                <td class="px-4 py-3">{{ $request->serial_no }}</td>
                                 <td class="px-4 py-3">{{ $request->remarks }}</td>
                                 <td class="px-4 py-3">{{ $request->issued_by }}</td>
                                 <td class="px-4 py-3"><a href="/viewEditRequest/{{$request->request_id}}">Edit</a>

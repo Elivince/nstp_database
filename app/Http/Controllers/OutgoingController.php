@@ -2,22 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Incoming;
+use App\Models\Outgoing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class IncomingController extends Controller
+class OutgoingController extends Controller
 {
     public function showTable()
     {
-        $incomings = Incoming::all();
-        return view('incoming', ['incomings' => $incomings]);
+        $outgoings = Outgoing::all();
+        return view('outgoing', ['outgoings' => $outgoings]);
     }
 
     public function addRecordToTable(Request $request)
     {
         $incomingFields = $request->validate([
-            'from_office' => 'required',
+            'to_office' => 'required',
+            'for' => 'required',
             'subject' => 'required',
             'remarks'=> 'required',
             'action' => 'nullable',
@@ -28,24 +29,25 @@ class IncomingController extends Controller
 
         $incomingFields['received_by'] = Auth::user()->name;
 
-        $incomingFields['from_office'] = strip_tags($incomingFields['from_office']);
+        $incomingFields['to_office'] = strip_tags($incomingFields['to_office']);
+        $incomingFields['for'] = strip_tags($incomingFields['for']);
         $incomingFields['subject'] = strip_tags($incomingFields['subject']);
         $incomingFields['remarks'] = strip_tags($incomingFields['remarks']);
         $incomingFields['action'] = strip_tags($incomingFields['action']);
         $incomingFields['action_date'] = strip_tags($incomingFields['action_date']);
 
 
-        Incoming::create($incomingFields);
+        Outgoing::create($incomingFields);
 
-        return redirect('/incoming');
+        return redirect('/outgoing');
     }
 
-    public function showEditIncomingPage(Incoming $incoming)
+    public function showEditIncomingPage(Outgoing $outgoing)
     {
-        return view('editIncoming', ['incoming' => $incoming]);
+        return view('editIncoming', ['outgoing' => $outgoing]);
     }
 
-    public function editRecordFromTable(Incoming $incoming, Request $request)
+    public function editRecordFromTable(Outgoing $outgoing, Request $request)
     {
         $incomingFields = $request->validate([
             'from_office' => 'required',
@@ -61,14 +63,14 @@ class IncomingController extends Controller
         $incomingFields['action'] = strip_tags($incomingFields['action']);
         $incomingFields['action_date'] = strip_tags($incomingFields['action_date']);
 
-        $incoming->update($incomingFields);
+        $outgoing->update($incomingFields);
 
-        return redirect('/incoming');
+        return redirect('/outgoing');
     }
 
-    public function deleteRecordFromTable(Incoming $incoming)
+    public function deleteRecordFromTable(Outgoing $outgoing)
     {
-        $incoming->delete();
-        return redirect('/incoming');
+        $outgoing->delete();
+        return redirect('/outgoing');
     }
 }
