@@ -24,7 +24,7 @@
                     </div>
                     <div class="flex space-x-8 sm:-my-px sm:ms-10 sm:flex">
                         <x-nav-link :href="url('tracker')" :active="request()->routeIs('tracker')">
-                            {{ __('S.N Tracker') }}
+                            {{ __('S.N Request') }}
                         </x-nav-link>
                     </div>
                     <div class="flex space-x-8 sm:-my-px sm:ms-10 sm:flex">
