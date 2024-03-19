@@ -6,189 +6,264 @@
         </div>
 
     </div>
-    <div class="flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
-        <!-- S.N Table -->
-        <form id="addRecordForm" action="/addRequest" method="POST">
-            @csrf
-            <div class="mx-40 mt-6 text-gray-500  dark:text-gray-200 leading-tight">
-                <div class="grid grid-cols-3 gap-4">
-                    <div>
-                        <label for="name" class="block text-sm font-normal text-white">Name</label>
-                        <input type="text" name="name" id="name" class="h-8 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full text-white shadow-sm sm:text-xs border-gray-300  dark:bg-gray-800 rounded-md text-sm">
-                    </div>
-                    <div>
-                        <label for="component" class="block text-sm font-normal text-white">Component</label>
-                        <input type="text" name="component" id="component" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block text-white  dark:bg-gray-800 w-full shadow-sm sm:text-xs border-gray-300 rounded-md">
-                    </div>
-                    <div>
-                        <label for="campus" class="block text-sm font-normal text-white">Campus</label>
-                        <input type="text" name="campus" id="campus" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full text-white  dark:bg-gray-800 shadow-sm sm:text-xs border-gray-300 rounded-md">
-                    </div>
-                    <div>
-                        <label for="course" class="block text-sm font-normal text-white">Course</label>
-                        <input type="text" name="course" id="course" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full text-white  dark:bg-gray-800 shadow-sm sm:text-xs border-gray-300 rounded-md">
-                    </div>
-                    <div>
-                        <label for="graduation_year" class="block text-sm font-normal text-white">Year Graduated</label>
-                        <input type="text" name="graduation_year" id="graduation_year" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full  dark:bg-gray-800 text-white shadow-sm sm:text-xs border-gray-300 rounded-md">
-                    </div>
-                    <div>
-                        <label for="serialno" class="block text-sm font-normal text-white">Serial Number</label>
-                        <input type="text" name="serialno" id="serialno" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-xs  dark:bg-gray-800 text-white border-gray-300 rounded-md">
-                    </div>
-                    <div>
-                        <label for="remarks" class="block text-sm font-normal text-white">Status</label>
-                        <div class="input-container h-8 text-sm mt-1 block w-full shadow-sm sm:text-sm  dark:bg-gray-800 text-white rounded-md">
-                            <i class=" fa fa-key icon"></i>
-                            <select class="input-field text-sm mx-2 my-2 px-28 bg-transparent border-0 sm:text-sm" name="remarks">
-                                <option value="" selected disabled>Select status</option>
-                                <option value="approved" class="px-10 py-10 text-green-700 bg-green-100 dark:bg-green-700 dark:text-green-100">Approved</option>
-                                <option value="pending" class="px-10 py-10 text-yellow-700 bg-yellow-100">Pending</option>
-                                <option value="expired" class="px-10 py-10 text-gray-700 bg-gray-100 dark:bg-gray-700 dark:text-gray-100">Expired</option>
-                                <option value="denied" class="px-10 py-10 text-red-700 bg-red-100 dark:bg-red-700 dark:text-red-100">Denied</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div>
-                        <label for="issued_by" class="block text-sm font-normal text-white">Issued By</label>
-                        <input type="text" name="issued_by" id="issued_by" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-xs  dark:bg-gray-800 text-white border-gray-300 rounded-md">
-                    </div>
+    <!-- component -->
+    <div class="bg-gray-500 h-screen w-screen sm:px-8 md:px-16 sm:py-8">
+        <main class="container mx-auto max-w-screen-lg h-full">
+            <!-- file upload modal -->
+            <article aria-label="File Upload Modal" class="relative h-full flex flex-col bg-white shadow-xl rounded-md" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);" ondragleave="dragLeaveHandler(event);" ondragenter="dragEnterHandler(event);">
+                <!-- overlay -->
+                <div id="overlay" class="w-full h-full absolute top-0 left-0 pointer-events-none z-50 flex flex-col items-center justify-center rounded-md">
+                    <i>
+                        <svg class="fill-current w-12 h-12 mb-3 text-blue-700" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M19.479 10.092c-.212-3.951-3.473-7.092-7.479-7.092-4.005 0-7.267 3.141-7.479 7.092-2.57.463-4.521 2.706-4.521 5.408 0 3.037 2.463 5.5 5.5 5.5h13c3.037 0 5.5-2.463 5.5-5.5 0-2.702-1.951-4.945-4.521-5.408zm-7.479-1.092l4 4h-3v4h-2v-4h-3l4-4z" />
+                        </svg>
+                    </i>
+                    <p class="text-lg text-blue-700">Drop files to upload</p>
                 </div>
-            </div>
-            <div class="flex justify-center mt-6">
-                <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-normal text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                    Add Record
-                </button>
-            </div>
-        </form>
 
-        <div class="mt-16 mx-10 mb-16">
-            <div class="w-full overflow-hidden rounded-lg shadow-xs">
-                <div class="w-full overflow-x-auto">
-                    <div class="flex flex-col items-start">
-                        <h2 class="text-white text-lg mb-2">List of Serial Number Request</h2>
-                    </div>
-                    <!-- component -->
-                    <div class="flex  dark:bg-gray-800 px-2 w-full max-w-[600px]">
-                        <button class="self-center flex p-1 cursor-pointer bg-[#0d1829]"> <svg width="30px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- scroll area -->
+                <section class="overflow-auto p-8 w-full h-full flex flex-col">
+                    <header class="border-dashed border-2 border-gray-400 py-12 flex flex-col justify-center items-center">
+                        <p class="mb-3 font-semibold text-gray-900 flex flex-wrap justify-center">
+                            <span>Drag and drop your</span>&nbsp;<span>files anywhere or</span>
+                        </p>
+                        <input id="hidden-input" type="file" multiple class="hidden" />
+                        <button id="button" class="mt-2 rounded-sm px-3 py-1 bg-gray-200 hover:bg-gray-300 focus:shadow-outline focus:outline-none">
+                            Upload a file
+                        </button>
+                    </header>
 
-                                <g id="SVGRepo_bgCarrier" stroke-width="0" />
+                    <h1 class="pt-8 pb-3 font-semibold sm:text-lg text-gray-900">
+                        To Upload
+                    </h1>
 
-                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+                    <ul id="gallery" class="flex flex-1 flex-wrap -m-1">
+                        <li id="empty" class="h-full w-full text-center flex flex-col justify-center items-center">
+                            <img class="mx-auto w-32" src="https://user-images.githubusercontent.com/507615/54591670-ac0a0180-4a65-11e9-846c-e55ffce0fe7b.png" alt="no data" />
+                            <span class="text-small text-gray-500">No files selected</span>
+                        </li>
+                    </ul>
+                </section>
 
-                                <g id="SVGRepo_iconCarrier">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M11.567 9.8895C12.2495 8.90124 12.114 7.5637 11.247 6.7325C10.3679 5.88806 9.02339 5.75928 7.99998 6.4215C7.57983 6.69308 7.25013 7.0837 7.05298 7.5435C6.85867 7.99881 6.80774 8.50252 6.90698 8.9875C7.00665 9.47472 7.25054 9.92071 7.60698 10.2675C7.97021 10.6186 8.42786 10.8563 8.92398 10.9515C9.42353 11.049 9.94062 11.0001 10.413 10.8105C10.8798 10.6237 11.2812 10.3033 11.567 9.8895Z" stroke="#ff5c5c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12.433 17.8895C11.7504 16.9012 11.886 15.5637 12.753 14.7325C13.6321 13.8881 14.9766 13.7593 16 14.4215C16.4202 14.6931 16.7498 15.0837 16.947 15.5435C17.1413 15.9988 17.1922 16.5025 17.093 16.9875C16.9933 17.4747 16.7494 17.9207 16.393 18.2675C16.0298 18.6186 15.5721 18.8563 15.076 18.9515C14.5773 19.0481 14.0614 18.9988 13.59 18.8095C13.1222 18.6234 12.7197 18.3034 12.433 17.8895V17.8895Z" stroke="#ff5c5c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                    <path d="M12 7.75049C11.5858 7.75049 11.25 8.08627 11.25 8.50049C11.25 8.9147 11.5858 9.25049 12 9.25049V7.75049ZM19 9.25049C19.4142 9.25049 19.75 8.9147 19.75 8.50049C19.75 8.08627 19.4142 7.75049 19 7.75049V9.25049ZM6.857 9.25049C7.27121 9.25049 7.607 8.9147 7.607 8.50049C7.607 8.08627 7.27121 7.75049 6.857 7.75049V9.25049ZM5 7.75049C4.58579 7.75049 4.25 8.08627 4.25 8.50049C4.25 8.9147 4.58579 9.25049 5 9.25049V7.75049ZM12 17.2505C12.4142 17.2505 12.75 16.9147 12.75 16.5005C12.75 16.0863 12.4142 15.7505 12 15.7505V17.2505ZM5 15.7505C4.58579 15.7505 4.25 16.0863 4.25 16.5005C4.25 16.9147 4.58579 17.2505 5 17.2505V15.7505ZM17.143 15.7505C16.7288 15.7505 16.393 16.0863 16.393 16.5005C16.393 16.9147 16.7288 17.2505 17.143 17.2505V15.7505ZM19 17.2505C19.4142 17.2505 19.75 16.9147 19.75 16.5005C19.75 16.0863 19.4142 15.7505 19 15.7505V17.2505ZM12 9.25049H19V7.75049H12V9.25049ZM6.857 7.75049H5V9.25049H6.857V7.75049ZM12 15.7505H5V17.2505H12V15.7505ZM17.143 17.2505H19V15.7505H17.143V17.2505Z" fill="#ff5c5c" />
-                                </g>
+                <!-- sticky footer -->
+                <footer class="flex justify-end px-8 pb-8 pt-4">
+                    <button id="submit" class="rounded-sm px-3 py-1 bg-blue-700 hover:bg-blue-500 text-white focus:shadow-outline focus:outline-none">
+                        Upload now
+                    </button>
+                    <button id="cancel" class="ml-3 rounded-sm px-3 py-1 hover:bg-gray-300 focus:shadow-outline focus:outline-none">
+                        Cancel
+                    </button>
+                </footer>
+            </article>
+        </main>
+    </div>
 
-                            </svg></button>
+    <!-- using two similar templates for simplicity in js code -->
+    <template id="file-template">
+        <li class="block p-1 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6 xl:w-1/8 h-24">
+            <article tabindex="0" class="group w-full h-full rounded-md focus:outline-none focus:shadow-outline elative bg-gray-100 cursor-pointer relative shadow-sm">
+                <img alt="upload preview" class="img-preview hidden w-full h-full sticky object-cover rounded-md bg-fixed" />
 
-                        <input type="text" class="w-full h-12  border-0 dark:bg-gray-800 flex bg-transparent pl-2 text-[#cccccc] text-sm outline-0" placeholder="Search name" />
-                        <button type="submit" class="relative p-2">
-                            <svg width="30px" height="15px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-
-                                <g id="SVGRepo_bgCarrier" stroke-width="0" />
-
-                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
-
-                                <g id="SVGRepo_iconCarrier">
-                                    <path d="M14.9536 14.9458L21 21M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                </g>
-
+                <section class="flex flex-col rounded-md text-xs break-words w-full h-full z-20 absolute top-0 py-2 px-3">
+                    <h1 class="flex-1 group-hover:text-blue-800"></h1>
+                    <div class="flex">
+                        <span class="p-1 text-blue-800">
+                            <i>
+                                <svg class="fill-current w-4 h-4 ml-auto pt-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path d="M15 2v5h5v15h-16v-20h11zm1-2h-14v24h20v-18l-6-6z" />
+                                </svg>
+                            </i>
+                        </span>
+                        <p class="p-1 size text-xs text-gray-700"></p>
+                        <button class="delete ml-auto focus:outline-none hover:bg-gray-300 p-1 rounded-md text-gray-800">
+                            <svg class="pointer-events-none fill-current w-4 h-4 ml-auto" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path class="pointer-events-none" d="M3 6l3 18h12l3-18h-18zm19-4v2h-20v-2h5.711c.9 0 1.631-1.099 1.631-2h5.316c0 .901.73 2 1.631 2h5.711z" />
                             </svg>
                         </button>
                     </div>
-                    <table class="w-full">
-                        <thead>
-                            <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                                <th class="px-4 py-3">Date Issued</th>
-                                <th class="px-4 py-3">Name</th>
-                                <th class="px-2 py-3">Component</th>
-                                <th class="px-4 py-3">Campus</th>
-                                <th class="px-5 py-3">Course</th>
-                                <th class="px-3 py-3">S.Y Grad.</th>
-                                <th class="px-3 py-3">Serial Number</th>
-                                <th class="px-4 py-3">Status</th>
-                                <th class="px-4 py-3">Issued By</th>
-                                <th class="px-1 py-3">Actions</th>
-                                <th class="px-0 py-3"></th>
-                            </tr>
-                        </thead>
-                        <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-                            @foreach ($requests as $request)
-                            <!-- Add your data here -->
-                            <tr class="text-sm bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-white dark:text-gray-400">
-                                <td class="px-4 py-3 ">{{ $request->date }}</td>
-                                <td class="px-4 py-3">{{ $request->name }}</td>
-                                <td class="px-4 py-3">{{ $request->component }}</td>
-                                <td class="px-4 py-3">{{ $request->campus }}</td>
-                                <td class="px-4 py-3">{{ $request->course }}</td>
-                                <td class="px-4 py-3">{{ $request->graduation_year }}</td>
-                                <td class="px-4 py-3">{{ $request->serialno }}</td>
-                                <td class="px-4 py-3">{{ $request->remarks }}</td>
-                                <td class="px-4 py-3">{{ $request->issued_by }}</td>
-                                <td class="px-4 py-3"><a href="#">Edit</a>
-                                <td class="px-4 py-3">
-                                    <form action="/deleteRequest/{{ $request->request_id }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button>Delete</button>
-                                    </form>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
+                </section>
+            </article>
+        </li>
+    </template>
 
-                    </table>
-                </div>
-                <div class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800">
-                    <span class="flex items-center col-span-3"> Showing 21-30 of 100 </span>
-                    <span class="col-span-2"></span>
-                    <!-- Pagination -->
-                    <span class="flex col-span-4 mt-2 sm:mt-auto sm:justify-end">
-                        <nav aria-label="Table navigation">
-                            <ul class="inline-flex items-center">
-                                <li>
-                                    <button class="px-3 py-1 rounded-md rounded-l-lg focus:outline-none focus:shadow-outline-purple" aria-label="Previous">
-                                        <svg aria-hidden="true" class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                                            <path d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" fill-rule="evenodd"></path>
-                                        </svg>
-                                    </button>
-                                </li>
-                                <li>
-                                    <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">1</button>
-                                </li>
-                                <li>
-                                    <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">2</button>
-                                </li>
-                                <li>
-                                    <button class="px-3 py-1 text-white dark:text-gray-800 transition-colors duration-150 bg-blue-600 dark:bg-gray-100 border border-r-0 border-blue-600 dark:border-gray-100 rounded-md focus:outline-none focus:shadow-outline-purple">3</button>
-                                </li>
-                                <li>
-                                    <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">4</button>
-                                </li>
-                                <li>
-                                    <span class="px-3 py-1">...</span>
-                                </li>
-                                <li>
-                                    <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">8</button>
-                                </li>
-                                <li>
-                                    <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">9</button>
-                                </li>
-                                <li>
-                                    <button class="px-3 py-1 rounded-md rounded-r-lg focus:outline-none focus:shadow-outline-purple" aria-label="Next">
-                                        <svg class="w-4 h-4 fill-current" aria-hidden="true" viewBox="0 0 20 20">
-                                            <path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" fill-rule="evenodd"></path>
-                                        </svg>
-                                    </button>
-                                </li>
-                            </ul>
-                        </nav>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
+    <template id="image-template">
+        <li class="block p-1 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6 xl:w-1/8 h-24">
+            <article tabindex="0" class="group hasImage w-full h-full rounded-md focus:outline-none focus:shadow-outline bg-gray-100 cursor-pointer relative text-transparent hover:text-white shadow-sm">
+                <img alt="upload preview" class="img-preview w-full h-full sticky object-cover rounded-md bg-fixed" />
+
+                <section class="flex flex-col rounded-md text-xs break-words w-full h-full z-20 absolute top-0 py-2 px-3">
+                    <h1 class="flex-1"></h1>
+                    <div class="flex">
+                        <span class="p-1">
+                            <i>
+                                <svg class="fill-current w-4 h-4 ml-auto pt-" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path d="M5 8.5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5c0 .829-.672 1.5-1.5 1.5s-1.5-.671-1.5-1.5zm9 .5l-2.519 4-2.481-1.96-4 5.96h14l-5-8zm8-4v14h-20v-14h20zm2-2h-24v18h24v-18z" />
+                                </svg>
+                            </i>
+                        </span>
+
+                        <p class="p-1 size text-xs"></p>
+                        <button class="delete ml-auto focus:outline-none hover:bg-gray-300 p-1 rounded-md">
+                            <svg class="pointer-events-none fill-current w-4 h-4 ml-auto" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path class="pointer-events-none" d="M3 6l3 18h12l3-18h-18zm19-4v2h-20v-2h5.711c.9 0 1.631-1.099 1.631-2h5.316c0 .901.73 2 1.631 2h5.711z" />
+                            </svg>
+                        </button>
+                    </div>
+                </section>
+            </article>
+        </li>
+    </template>
+
+    <script>
+        const fileTempl = document.getElementById("file-template"),
+            imageTempl = document.getElementById("image-template"),
+            empty = document.getElementById("empty");
+
+        // use to store pre selected files
+        let FILES = {};
+
+        // check if file is of type image and prepend the initialied
+        // template to the target element
+        function addFile(target, file) {
+            const isImage = file.type.match("image.*"),
+                objectURL = URL.createObjectURL(file);
+
+            const clone = isImage ?
+                imageTempl.content.cloneNode(true) :
+                fileTempl.content.cloneNode(true);
+
+            clone.querySelector("h1").textContent = file.name;
+            clone.querySelector("li").id = objectURL;
+            clone.querySelector(".delete").dataset.target = objectURL;
+            clone.querySelector(".size").textContent =
+                file.size > 1024 ?
+                file.size > 1048576 ?
+                Math.round(file.size / 1048576) + "mb" :
+                Math.round(file.size / 1024) + "kb" :
+                file.size + "b";
+
+            isImage &&
+                Object.assign(clone.querySelector("img"), {
+                    src: objectURL,
+                    alt: file.name
+                });
+
+            empty.classList.add("hidden");
+            target.prepend(clone);
+
+            FILES[objectURL] = file;
+        }
+
+        const gallery = document.getElementById("gallery"),
+            overlay = document.getElementById("overlay");
+
+        // click the hidden input of type file if the visible button is clicked
+        // and capture the selected files
+        const hidden = document.getElementById("hidden-input");
+        document.getElementById("button").onclick = () => hidden.click();
+        hidden.onchange = (e) => {
+            for (const file of e.target.files) {
+                addFile(gallery, file);
+            }
+        };
+
+        // use to check if a file is being dragged
+        const hasFiles = ({
+                dataTransfer: {
+                    types = []
+                }
+            }) =>
+            types.indexOf("Files") > -1;
+
+        // use to drag dragenter and dragleave events.
+        // this is to know if the outermost parent is dragged over
+        // without issues due to drag events on its children
+        let counter = 0;
+
+        // reset counter and append file to gallery when file is dropped
+        function dropHandler(ev) {
+            ev.preventDefault();
+            for (const file of ev.dataTransfer.files) {
+                addFile(gallery, file);
+                overlay.classList.remove("draggedover");
+                counter = 0;
+            }
+        }
+
+        // only react to actual files being dragged
+        function dragEnterHandler(e) {
+            e.preventDefault();
+            if (!hasFiles(e)) {
+                return;
+            }
+            ++counter && overlay.classList.add("draggedover");
+        }
+
+        function dragLeaveHandler(e) {
+            1 > --counter && overlay.classList.remove("draggedover");
+        }
+
+        function dragOverHandler(e) {
+            if (hasFiles(e)) {
+                e.preventDefault();
+            }
+        }
+
+        // event delegation to caputre delete events
+        // fron the waste buckets in the file preview cards
+        gallery.onclick = ({
+            target
+        }) => {
+            if (target.classList.contains("delete")) {
+                const ou = target.dataset.target;
+                document.getElementById(ou).remove(ou);
+                gallery.children.length === 1 && empty.classList.remove("hidden");
+                delete FILES[ou];
+            }
+        };
+
+        // print all selected files
+        document.getElementById("submit").onclick = () => {
+            alert(`Submitted Files:\n${JSON.stringify(FILES)}`);
+            console.log(FILES);
+        };
+
+        // clear entire selection
+        document.getElementById("cancel").onclick = () => {
+            while (gallery.children.length > 0) {
+                gallery.lastChild.remove();
+            }
+            FILES = {};
+            empty.classList.remove("hidden");
+            gallery.append(empty);
+        };
+    </script>
+
+    <style>
+        .hasImage:hover section {
+            background-color: rgba(5, 5, 5, 0.4);
+        }
+
+        .hasImage:hover button:hover {
+            background: rgba(5, 5, 5, 0.45);
+        }
+
+        #overlay p,
+        i {
+            opacity: 0;
+        }
+
+        #overlay.draggedover {
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+
+        #overlay.draggedover p,
+        #overlay.draggedover i {
+            opacity: 1;
+        }
+
+        .group:hover .group-hover\:text-blue-800 {
+            color: #2b6cb0;
+        }
+    </style>
 </x-app-layout>
