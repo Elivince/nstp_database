@@ -198,7 +198,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="mt-8 text-right">
                             <button type="button" class="bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 border border-gray-300 rounded-lg shadow-sm mr-2" @click="openEventModal = !openEventModal">
                                 Cancel
@@ -207,13 +206,14 @@
                                 Save Event
                             </button>
                         </div>
+
                     </div>
                 </div>
             </div>
             <!-- /Modal -->
 
             <!-- View Modal -->
-            <!-- <div style="background-color: rgba(0, 0, 0, 0.5)" class="fixed z-50 top-0 right-0 left-0 bottom-0 h-full w-full" x-show.transition.opacity="viewEventModal">
+            <div style="background-color: rgba(0, 0, 0, 0.5)" class="fixed z-50 top-0 right-0 left-0 bottom-0 h-full w-full" x-show.transition.opacity="viewEventModal">
                 <div class="p-4 max-w-xl mx-auto absolute left-0 right-0 overflow-hidden mt-24">
                     <div class="shadow absolute right-0 top-0 w-10 h-10 rounded-full bg-white text-gray-500 hover:text-gray-800 inline-flex items-center justify-center cursor-pointer" x-on:click="viewEventModal = !viewEventModal">
                         <svg class="fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -227,7 +227,7 @@
                         </h2>
 
                         <div class="mb-4">
-                            <label class="text-gray-800 block font-bold text-sm tracking-wide">Event Title</label>
+                            <label class="text-gray-800 block font-bold text-sm tracking-wide">Event Description</label>
                             <p class="text-gray-600 mt-2" x-text="event_title"></p>
                         </div>
 
@@ -240,9 +240,16 @@
                             <label class="text-gray-800 block font-bold text-sm tracking-wide">Event Theme</label>
                             <p class="text-gray-600 mt-2" x-text="event_theme"></p>
                         </div>
+
+                        <div class="mt-8 text-right">
+                            <button type="button" class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 border border-gray-700 rounded-lg shadow-sm" @click="editEvent()">
+                                Edit Event
+                            </button>
+                        </div>
+
                     </div>
                 </div>
-            </div> -->
+            </div>
             <!-- /View Modal -->
 
 
@@ -367,6 +374,23 @@
                             //close the modal
                             this.openEventModal = false;
                         },
+
+                        editEvent() {
+                            const index = this.events.findIndex(event => event.id === this.selectedEvent.id);
+                            this.events[index].event_date = this.event_date;
+                            this.events[index].event_title = this.event_title;
+                            this.events[index].event_theme = this.event_theme;
+
+                            console.log(this.events);
+
+                            // clear the form data
+                            this.event_title = "";
+                            this.event_date = "";
+                            this.event_theme = "blue";
+
+                            //close the modal
+                            this.viewEventModal = false;
+                        }
 
                         getNoOfDays() {
                             let daysInMonth = new Date(
