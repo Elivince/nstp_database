@@ -4,8 +4,72 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d99686bc96aa795dbfe9abd5a0315e72",
+    "content-hash": "67caf3f9d83df6338783d366d245f491",
     "packages": [
+        {
+            "name": "akaunting/laravel-sortable",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/akaunting/laravel-sortable.git",
+                "reference": "f0ac8c5c53d6196575011f23d85a5e9587cf321b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/akaunting/laravel-sortable/zipball/f0ac8c5c53d6196575011f23d85a5e9587cf321b",
+                "reference": "f0ac8c5c53d6196575011f23d85a5e9587cf321b",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^9.0|^10.0",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^7.4|^8.0",
+                "phpunit/phpunit": "^9.5|^10.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Akaunting\\Sortable\\Provider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Akaunting\\Sortable\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Denis Duliçi",
+                    "email": "info@akaunting.com",
+                    "homepage": "https://akaunting.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Sortable behavior package for Laravel",
+            "keywords": [
+                "blade",
+                "column",
+                "laravel",
+                "model",
+                "sort",
+                "sortable",
+                "sorting",
+                "view"
+            ],
+            "support": {
+                "issues": "https://github.com/akaunting/laravel-sortable/issues",
+                "source": "https://github.com/akaunting/laravel-sortable/tree/2.0.1"
+            },
+            "time": "2023-03-16T14:47:26+00:00"
+        },
         {
             "name": "brick/math",
             "version": "0.11.0",

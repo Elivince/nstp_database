@@ -1,4 +1,6 @@
 <x-app-layout>
+    <link href="../css/outpus.css" rel="stylesheet">
+
     <!-- Sidebar -->
     <div class="overflow-hidden min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
         <div class=" fixed flex flex-col top-14 left-0 w-14 hover:w-64 md:w-64 bg-blue-900 dark:bg-gray-900 h-full text-white transition-all duration-300 border-none z-10 sidebar">
@@ -89,7 +91,7 @@
         </style>
         <div class="overflow-hidden flex items-center justify-center">
             <div x-data="app()" x-init="[initDate(), getNoOfDays()]" x-cloak>
-                <div class="container mx-auto px-10 py-10 md:py-24" style="max-width: 800px;">
+                <div class="container mx-auto px-20 py-20 md:py-24" style="max-width: 800px;">
                     <div class="font-bold dark:text-white text-xl mb-4">
                         Schedule Tasks
                     </div>
@@ -158,14 +160,14 @@
 
                 <!-- Modal -->
                 <div style="background-color: rgba(0, 0, 0, 0.8)" class="fixed z-40 top-0 right-0 left-0 bottom-0 h-full w-full" x-show.transition.opacity="openEventModal">
-                    <div class="p-4 max-w-xl mx-auto relative absolute left-0 right-0 overflow-hidden mt-24">
+                    <div class="p-4 max-w-xl mx-auto absolute left-0 right-0 overflow-hidden mt-24">
                         <div class="shadow absolute right-0 top-0 w-10 h-10 rounded-full bg-white text-gray-500 hover:text-gray-800 inline-flex items-center justify-center cursor-pointer" x-on:click="openEventModal = !openEventModal">
                             <svg class="fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                 <path d="M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z" />
                             </svg>
                         </div>
 
-                        <div class="shadow w-full rounded-lg bg-white overflow-hidden w-full block p-8">
+                        <div class="shadow rounded-lg bg-white overflow-hidden w-full block p-8">
                             <h2 class="font-bold text-2xl mb-6 text-gray-800 border-b pb-2">
                                 Add Event Details
                             </h2>
@@ -181,7 +183,9 @@
                             </div>
 
                             <div class="inline-block w-64 mb-4">
-                                <label class="text-gray-800 block mb-1 font-bold text-sm tracking-wide">Select a theme</label>
+                                <form>
+                                    <label class="text-gray-800 block mb-1 font-bold text-sm tracking-wide">Select a theme</label>
+                                </form>
                                 <div class="relative">
                                     <select @change="event_theme = $event.target.value;" x-model="event_theme" class="block appearance-none w-full bg-gray-200 border-2 border-gray-200 hover:border-gray-500 px-4 py-2 pr-8 rounded-lg leading-tight focus:outline-none focus:bg-white focus:border-blue-500 text-gray-700">
                                         <template x-for="(theme, index) in themes">
@@ -208,154 +212,154 @@
                     </div>
                 </div>
                 <!-- /Modal -->
+
+
+                <script>
+                    const MONTH_NAMES = [
+                        "January",
+                        "February",
+                        "March",
+                        "April",
+                        "May",
+                        "June",
+                        "July",
+                        "August",
+                        "September",
+                        "October",
+                        "November",
+                        "December",
+                    ];
+                    const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+                    function app() {
+                        return {
+                            month: "",
+                            year: "",
+                            no_of_days: [],
+                            blankdays: [],
+                            days: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+
+                            events: [{
+                                    event_date: new Date(2020, 3, 1),
+                                    event_title: "April Fool's Day",
+                                    event_theme: "blue",
+                                },
+
+                                {
+                                    event_date: new Date(2020, 3, 10),
+                                    event_title: "Birthday",
+                                    event_theme: "red",
+                                },
+
+                                {
+                                    event_date: new Date(2020, 3, 16),
+                                    event_title: "Upcoming Event",
+                                    event_theme: "green",
+                                },
+                            ],
+                            event_title: "",
+                            event_date: "",
+                            event_theme: "blue",
+
+                            themes: [{
+                                    value: "blue",
+                                    label: "Blue Theme",
+                                },
+                                {
+                                    value: "red",
+                                    label: "Red Theme",
+                                },
+                                {
+                                    value: "yellow",
+                                    label: "Yellow Theme",
+                                },
+                                {
+                                    value: "green",
+                                    label: "Green Theme",
+                                },
+                                {
+                                    value: "purple",
+                                    label: "Purple Theme",
+                                },
+                            ],
+
+                            openEventModal: false,
+
+                            initDate() {
+                                let today = new Date();
+                                this.month = today.getMonth();
+                                this.year = today.getFullYear();
+                                this.datepickerValue = new Date(
+                                    this.year,
+                                    this.month,
+                                    today.getDate()
+                                ).toDateString();
+                            },
+
+                            isToday(date) {
+                                const today = new Date();
+                                const d = new Date(this.year, this.month, date);
+
+                                return today.toDateString() === d.toDateString() ? true : false;
+                            },
+
+                            showEventModal(date) {
+                                // open the modal
+                                this.openEventModal = true;
+                                this.event_date = new Date(
+                                    this.year,
+                                    this.month,
+                                    date
+                                ).toDateString();
+                            },
+
+                            addEvent() {
+                                if (this.event_title == "") {
+                                    return;
+                                }
+
+                                this.events.push({
+                                    event_date: this.event_date,
+                                    event_title: this.event_title,
+                                    event_theme: this.event_theme,
+                                });
+
+                                console.log(this.events);
+
+                                // clear the form data
+                                this.event_title = "";
+                                this.event_date = "";
+                                this.event_theme = "blue";
+
+                                //close the modal
+                                this.openEventModal = false;
+                            },
+
+                            getNoOfDays() {
+                                let daysInMonth = new Date(
+                                    this.year,
+                                    this.month + 1,
+                                    0
+                                ).getDate();
+
+                                // find where to start calendar day of week
+                                let dayOfWeek = new Date(this.year, this.month).getDay();
+                                let blankdaysArray = [];
+                                for (var i = 1; i <= dayOfWeek; i++) {
+                                    blankdaysArray.push(i);
+                                }
+
+                                let daysArray = [];
+                                for (var i = 1; i <= daysInMonth; i++) {
+                                    daysArray.push(i);
+                                }
+
+                                this.blankdays = blankdaysArray;
+                                this.no_of_days = daysArray;
+                            },
+                        };
+                    }
+                </script>
             </div>
-
-            <script>
-                const MONTH_NAMES = [
-                    "January",
-                    "February",
-                    "March",
-                    "April",
-                    "May",
-                    "June",
-                    "July",
-                    "August",
-                    "September",
-                    "October",
-                    "November",
-                    "December",
-                ];
-                const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
-                function app() {
-                    return {
-                        month: "",
-                        year: "",
-                        no_of_days: [],
-                        blankdays: [],
-                        days: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-
-                        events: [{
-                                event_date: new Date(2020, 3, 1),
-                                event_title: "April Fool's Day",
-                                event_theme: "blue",
-                            },
-
-                            {
-                                event_date: new Date(2020, 3, 10),
-                                event_title: "Birthday",
-                                event_theme: "red",
-                            },
-
-                            {
-                                event_date: new Date(2020, 3, 16),
-                                event_title: "Upcoming Event",
-                                event_theme: "green",
-                            },
-                        ],
-                        event_title: "",
-                        event_date: "",
-                        event_theme: "blue",
-
-                        themes: [{
-                                value: "blue",
-                                label: "Blue Theme",
-                            },
-                            {
-                                value: "red",
-                                label: "Red Theme",
-                            },
-                            {
-                                value: "yellow",
-                                label: "Yellow Theme",
-                            },
-                            {
-                                value: "green",
-                                label: "Green Theme",
-                            },
-                            {
-                                value: "purple",
-                                label: "Purple Theme",
-                            },
-                        ],
-
-                        openEventModal: false,
-
-                        initDate() {
-                            let today = new Date();
-                            this.month = today.getMonth();
-                            this.year = today.getFullYear();
-                            this.datepickerValue = new Date(
-                                this.year,
-                                this.month,
-                                today.getDate()
-                            ).toDateString();
-                        },
-
-                        isToday(date) {
-                            const today = new Date();
-                            const d = new Date(this.year, this.month, date);
-
-                            return today.toDateString() === d.toDateString() ? true : false;
-                        },
-
-                        showEventModal(date) {
-                            // open the modal
-                            this.openEventModal = true;
-                            this.event_date = new Date(
-                                this.year,
-                                this.month,
-                                date
-                            ).toDateString();
-                        },
-
-                        addEvent() {
-                            if (this.event_title == "") {
-                                return;
-                            }
-
-                            this.events.push({
-                                event_date: this.event_date,
-                                event_title: this.event_title,
-                                event_theme: this.event_theme,
-                            });
-
-                            console.log(this.events);
-
-                            // clear the form data
-                            this.event_title = "";
-                            this.event_date = "";
-                            this.event_theme = "blue";
-
-                            //close the modal
-                            this.openEventModal = false;
-                        },
-
-                        getNoOfDays() {
-                            let daysInMonth = new Date(
-                                this.year,
-                                this.month + 1,
-                                0
-                            ).getDate();
-
-                            // find where to start calendar day of week
-                            let dayOfWeek = new Date(this.year, this.month).getDay();
-                            let blankdaysArray = [];
-                            for (var i = 1; i <= dayOfWeek; i++) {
-                                blankdaysArray.push(i);
-                            }
-
-                            let daysArray = [];
-                            for (var i = 1; i <= daysInMonth; i++) {
-                                daysArray.push(i);
-                            }
-
-                            this.blankdays = blankdaysArray;
-                            this.no_of_days = daysArray;
-                        },
-                    };
-                }
-            </script>
-        </div>
 
 </x-app-layout>
