@@ -105,7 +105,7 @@
                                         </svg>
                                     </button>
                                 </th>
-
+                                <th class="px-3 py-3">Serial Number</th>
                                 <th class="px-4 py-3">
                                     <button class="flex items-center gap-x-1 focus:outline-none">
                                         <span class="">@sortablelink('name', 'NAME')</span>
@@ -157,7 +157,6 @@
                                         </svg>
                                     </button>
                                 </th>
-                                <th class="px-3 py-3">Serial Number</th>
                                 <th class="px-4 py-3">Status</th>
                                 <th class="px-4 py-3">
                                     <button class="flex items-center gap-x-1 focus:outline-none">
