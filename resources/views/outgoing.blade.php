@@ -107,7 +107,7 @@
                                 <td class="px-4 py-3">{{ $outgoing->remarks }}</td>
                                 <td class="px-4 py-3">{{ $outgoing->action }}</td>
                                 <td class="px-4 py-3">{{ $outgoing->action_date }}</td>
-                                <td class="px-4 py-3"><a href="#">Edit</a>
+                                <td class="px-4 py-3"><a href="/viewEditOutgoing/{{$outgoing->outgoing_no}}">Edit</a>
                                 <td class="px-4 py-3">
                                     <form action="/deleteOutgoing/{{ $outgoing->outgoing_no }}" method="POST">
                                         @csrf

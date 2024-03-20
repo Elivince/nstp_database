@@ -42,22 +42,24 @@ class OutgoingController extends Controller
         return redirect('/outgoing');
     }
 
-    public function showEditIncomingPage(Outgoing $outgoing)
+    public function showEditOutgoingPage(Outgoing $outgoing)
     {
-        return view('editIncoming', ['outgoing' => $outgoing]);
+        return view('editOutgoing', ['outgoing' => $outgoing]);
     }
 
     public function editRecordFromTable(Outgoing $outgoing, Request $request)
     {
         $incomingFields = $request->validate([
-            'from_office' => 'required',
+            'to_office' => 'required',
+            'for' => 'required',
             'subject' => 'required',
             'remarks'=> 'required',
             'action' => 'nullable',
             'action_date' => 'nullable'
         ]);
 
-        $incomingFields['from_office'] = strip_tags($incomingFields['from_office']);
+        $incomingFields['to_office'] = strip_tags($incomingFields['to_office']);
+        $incomingFields['for'] = strip_tags($incomingFields['for']);
         $incomingFields['subject'] = strip_tags($incomingFields['subject']);
         $incomingFields['remarks'] = strip_tags($incomingFields['remarks']);
         $incomingFields['action'] = strip_tags($incomingFields['action']);

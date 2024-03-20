@@ -61,6 +61,9 @@ Route::get('/outgoing', [OutgoingController::class, 'showtable'])->name('outgoin
 
 Route::post('/addOutgoing', [OutgoingController::class, 'addRecordToTable']);
 
+Route::get('/viewEditOutgoing/{outgoing}', [OutgoingController::class, 'showEditOutgoingPage']);
+Route::put('/viewEditOutgoing/{outgoing}', [OutgoingController::class, 'editRecordFromTable']);
+
 Route::delete('/deleteOutgoing/{outgoing}', [OutgoingController::class, 'deleteRecordFromTable']);
 
 // FILE SYSTEM TRACKER ROUTES//
