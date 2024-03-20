@@ -4,7 +4,6 @@
             <h1 class="text-4xl font-bold text-white">NSTP Database</h1>
             <p class="text-white">Welcome to the NSTP Database</p>
         </div>
-
     </div>
     <!-- component -->
     <div class="bg-gray-500 h-screen w-screen sm:px-8 md:px-16 sm:py-8">
