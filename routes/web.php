@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TrackerController;
+use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\IncomingController;
 use App\Http\Controllers\OutgoingController;
 use App\Http\Controllers\TrackerControllerforOutgoing;
@@ -22,21 +23,24 @@ Route::get('/', function () {
     return view('auth/login');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::get('/calendar', function () {
-    return view('calendar');
-})->name('calendar');
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// SERIAL NO. REQUEST TRACKER ROUTES//
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+// CALENDAR EVENT TRACKER ROUTES //
+Route::get('/calendar', function () {
+    return view('calendar');
+})->name('calendar');
+
+Route::post('/addEvent', [CalendarController::class, 'addEventToCalendar']);
+
+// SERIAL NO. REQUEST TRACKER ROUTES //
 Route::get('/tracker', [TrackerController::class, 'showtable'])->name('tracker');
 
 Route::post('/addRequest', [TrackerController::class, 'addRecordToTable']);
@@ -46,7 +50,7 @@ Route::put('/viewEditRequest/{request}', [TrackerController::class, 'editRecordF
 
 Route::delete('/deleteRequest/{request}', [TrackerController::class, 'deleteRecordFromTable']);
 
-// INCOMING TRACKER ROUTES//
+// INCOMING TRACKER ROUTES //
 Route::get('/incoming', [IncomingController::class, 'showtable'])->name('incoming');
 
 Route::post('/addIncoming', [IncomingController::class, 'addRecordToTable']);
@@ -56,7 +60,7 @@ Route::put('/viewEditIncoming/{incoming}', [IncomingController::class, 'editReco
 
 Route::delete('/deleteIncoming/{incoming}', [IncomingController::class, 'deleteRecordFromTable']);
 
-// OUTGOING TRACKER ROUTES//
+// OUTGOING TRACKER ROUTES //
 Route::get('/outgoing', [OutgoingController::class, 'showtable'])->name('outgoing');
 
 Route::post('/addOutgoing', [OutgoingController::class, 'addRecordToTable']);
@@ -66,7 +70,7 @@ Route::put('/viewEditOutgoing/{outgoing}', [OutgoingController::class, 'editReco
 
 Route::delete('/deleteOutgoing/{outgoing}', [OutgoingController::class, 'deleteRecordFromTable']);
 
-// FILE SYSTEM TRACKER ROUTES//
+// FILE SYSTEM TRACKER ROUTES //
 Route::get('/file-system', [TrackerController::class, 'showtable'])->name('file-system');
 
 Route::get('/viewEditRequest/{request}', [TrackerController::class, 'showEditRequestPage']);
