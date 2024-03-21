@@ -6,7 +6,6 @@ use App\Http\Controllers\TrackerController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\IncomingController;
 use App\Http\Controllers\OutgoingController;
-use App\Http\Controllers\TrackerControllerforOutgoing;
 
 /*
 |--------------------------------------------------------------------------
