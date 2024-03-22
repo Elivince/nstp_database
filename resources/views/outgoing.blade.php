@@ -6,7 +6,12 @@
         </div>
 
     </div>
-    <div x-data="{open:false}" class="flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
+    <style>
+        [x-cloak] {
+            display: none;
+        }
+    </style>
+    <div x-cloak x-data="{open:false}" class="flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
         <!-- S.N Table -->
         <form id="addRecordForm" action="/addOutgoing" method="POST">
             @csrf
