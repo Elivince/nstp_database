@@ -1,5 +1,5 @@
 <div class="items-start fixed w-full flex z-10 bg-blue-900 dark:bg-gray-900 ">
-    <div class="overflow-y-auto overflow-x-hidden flex flex-col flex-grow"> <!-- Primary Navigation Menu -->
+    <div class="overflow-visible flex flex-col flex-grow"> <!-- Primary Navigation Menu -->
         <div class="max-w-8xl sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex">
@@ -59,7 +59,8 @@
                             </button>
                         </x-slot>
 
-                        <x-slot name="content">
+                        <x-slot name="content" class="z-10 absolute">
+
                             <x-dropdown-link :href="route('profile.edit')">
                                 {{ __('Profile') }}
                             </x-dropdown-link>
