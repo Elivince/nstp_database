@@ -199,6 +199,7 @@
                         </tbody>
                     </table>
                 </div>
+
                 <div x-show="open" style="background-color: rgba(0, 0, 0, 0.8)" class="fixed inset-0 overflow-y-auto z-40 top-0 right-0 left-0 bottom-0 h-full w-full">
                     <div class="p-4 max-w-2xl mx-auto absolute left-0 right-0 overflow-hidden mt-10">
                         <div class="shadow absolute right-0 top-0 w-10 h-10 rounded-full bg-white text-gray-500 hover:text-gray-800 inline-flex items-center justify-center cursor-pointer" @click="open = false">
@@ -263,7 +264,7 @@
                                 <button type="button" class="bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 border border-gray-300 rounded-lg shadow-sm mr-2" @click="open = false">
                                     Close
                                 </button>
-                                <button type="submit" class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 border border-gray-700 rounded-lg shadow-sm" @click="open = false"">
+                                <button type="submit" class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 border border-gray-700 rounded-lg shadow-sm" @click="open = false">
                                     Save Changes
                                 </button>
                             </div>
@@ -273,74 +274,74 @@
                 </div>
             </div>
             <div class=" grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800">
-                                    <span class="flex items-center col-span-3"> Showing 21-30 of 100 </span>
-                                    <span class="col-span-2"></span>
-                                    <!-- Pagination -->
-                                    <span class="flex col-span-4 mt-2 sm:mt-auto sm:justify-end">
-                                        <nav aria-label="Table navigation">
-                                            <ul class="inline-flex items-center">
-                                                <li>
-                                                    <button class="px-3 py-1 rounded-md rounded-l-lg focus:outline-none focus:shadow-outline-purple" aria-label="Previous">
-                                                        <svg aria-hidden="true" class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                                                            <path d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" fill-rule="evenodd"></path>
-                                                        </svg>
-                                                    </button>
-                                                </li>
-                                                <li>
-                                                    <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">1</button>
-                                                </li>
-                                                <li>
-                                                    <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">2</button>
-                                                </li>
-                                                <li>
-                                                    <button class="px-3 py-1 text-white dark:text-gray-800 transition-colors duration-150 bg-blue-600 dark:bg-gray-100 border border-r-0 border-blue-600 dark:border-gray-100 rounded-md focus:outline-none focus:shadow-outline-purple">3</button>
-                                                </li>
-                                                <li>
-                                                    <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">4</button>
-                                                </li>
-                                                <li>
-                                                    <span class="px-3 py-1">...</span>
-                                                </li>
-                                                <li>
-                                                    <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">8</button>
-                                                </li>
-                                                <li>
-                                                    <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">9</button>
-                                                </li>
-                                                <li>
-                                                    <button class="px-3 py-1 rounded-md rounded-r-lg focus:outline-none focus:shadow-outline-purple" aria-label="Next">
-                                                        <svg class="w-4 h-4 fill-current" aria-hidden="true" viewBox="0 0 20 20">
-                                                            <path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" fill-rule="evenodd"></path>
-                                                        </svg>
-                                                    </button>
-                                                </li>
-                                            </ul>
-                                        </nav>
-                                    </span>
-                            </div>
+                <span class="flex items-center col-span-3"> Showing 21-30 of 100 </span>
+                <span class="col-span-2"></span>
+                <!-- Pagination -->
+                <span class="flex col-span-4 mt-2 sm:mt-auto sm:justify-end">
+                    <nav aria-label="Table navigation">
+                        <ul class="inline-flex items-center">
+                            <li>
+                                <button class="px-3 py-1 rounded-md rounded-l-lg focus:outline-none focus:shadow-outline-purple" aria-label="Previous">
+                                    <svg aria-hidden="true" class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                                        <path d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                    </svg>
+                                </button>
+                            </li>
+                            <li>
+                                <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">1</button>
+                            </li>
+                            <li>
+                                <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">2</button>
+                            </li>
+                            <li>
+                                <button class="px-3 py-1 text-white dark:text-gray-800 transition-colors duration-150 bg-blue-600 dark:bg-gray-100 border border-r-0 border-blue-600 dark:border-gray-100 rounded-md focus:outline-none focus:shadow-outline-purple">3</button>
+                            </li>
+                            <li>
+                                <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">4</button>
+                            </li>
+                            <li>
+                                <span class="px-3 py-1">...</span>
+                            </li>
+                            <li>
+                                <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">8</button>
+                            </li>
+                            <li>
+                                <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">9</button>
+                            </li>
+                            <li>
+                                <button class="px-3 py-1 rounded-md rounded-r-lg focus:outline-none focus:shadow-outline-purple" aria-label="Next">
+                                    <svg class="w-4 h-4 fill-current" aria-hidden="true" viewBox="0 0 20 20">
+                                        <path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                    </svg>
+                                </button>
+                            </li>
+                        </ul>
+                    </nav>
+                </span>
+            </div>
 
-                    </div>
+        </div>
 
-                </div>
+    </div>
 
 
 
-                <script>
-                    class MyClass {
-                        constructor() {
-                            this.editRequest = false; // This should keep the modal closed by default
-                        }
+    <script>
+        class MyClass {
+            constructor() {
+                this.editRequest = false; // This should keep the modal closed by default
+            }
 
-                        showEditRequest = () => {
-                            this.editRequest = true;
-                        }
+            showEditRequest = () => {
+                this.editRequest = true;
+            }
 
-                        closeEditRequest = () => {
-                            this.editRequest = false;
-                        }
-                    }
+            closeEditRequest = () => {
+                this.editRequest = false;
+            }
+        }
 
-                    // Instantiate the class and bind it to the window object
-                    window.myClass = new MyClass();
-                </script>
+        // Instantiate the class and bind it to the window object
+        window.myClass = new MyClass();
+    </script>
 </x-app-layout>
