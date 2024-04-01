@@ -8,9 +8,9 @@ use Illuminate\Support\Facades\Auth;
 
 class TrackerController extends Controller
 {
-    public function showTable()
+    public function showTable(Request $request)
     {
-        $requests = Tracker::query()->sortable()->get();
+        $requests = Tracker::query()->sortable($request->except('page'))->paginate(10);
 
         return view('tracker', ['requests' => $requests]);
     }
