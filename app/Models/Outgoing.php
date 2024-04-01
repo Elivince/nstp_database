@@ -2,12 +2,16 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Kyslik\ColumnSortable\Sortable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class outgoing extends Model
 {
+    use Sortable;
+
     use HasFactory;
+    
     protected $table = 'outgoing';
 
     protected $primaryKey = 'outgoing_no';
