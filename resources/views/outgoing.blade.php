@@ -6,7 +6,12 @@
         </div>
 
     </div>
-    <div class="flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
+    <style>
+        [x-cloak] {
+            display: none;
+        }
+    </style>
+    <div x-cloak x-data="{open:false}" class="flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
         <!-- S.N Table -->
         <form id="addRecordForm" action="/addOutgoing" method="POST">
             @csrf
@@ -107,7 +112,9 @@
                                 <td class="px-4 py-3">{{ $outgoing->remarks }}</td>
                                 <td class="px-4 py-3">{{ $outgoing->action }}</td>
                                 <td class="px-4 py-3">{{ $outgoing->action_date }}</td>
-                                <td class="px-4 py-3"><a href="/viewEditOutgoing/{{$outgoing->outgoing_no}}">Edit</a>
+                                <td class="px-4 py-3">
+                                    <button @click="open = true">Edit</button>
+                                </td>
                                 <td class="px-4 py-3">
                                     <form action="/deleteOutgoing/{{ $outgoing->outgoing_no }}" method="POST">
                                         @csrf
@@ -118,9 +125,75 @@
                             </tr>
                             @endforeach
                         </tbody>
-
                     </table>
                 </div>
+
+                <div x-show="open" style="background-color: rgba(0, 0, 0, 0.8)" class="fixed inset-0 overflow-y-auto z-40 top-0 right-0 left-0 bottom-0 h-full w-full">
+                    <div class="p-4 max-w-2xl mx-auto absolute left-0 right-0 overflow-hidden mt-10">
+                        <div class="shadow absolute right-0 top-0 w-10 h-10 rounded-full bg-white text-gray-500 hover:text-gray-800 inline-flex items-center justify-center cursor-pointer" @click="open = false">
+                            <svg class="fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z" />
+                            </svg>
+                        </div>
+                        <!-- <div class="shadow rounded-lg bg-white overflow-hidden w-full block p-8"> -->
+
+                        <form id="editRecordForm" action="/viewEditOutgoing/{{$outgoing->outgoing_no}}" method="POST" class="shadow rounded-lg bg-white overflow-hidden w-full block p-8">
+                            @csrf
+                            @method('PUT')
+                            <h2 class="font-bold text-2xl mb-6 text-gray-800 border-b pb-2">
+                                Edit Record
+                            </h2>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="text-gray-800 block mb-1 font-bold text-sm tracking-wide" for="name">
+                                        To what office
+                                    </label>
+                                    <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" placeholder="To what Office" name="to_office" value="{{$outgoing->to_office}}">
+                                </div>
+                                <div>
+                                    <label class="text-gray-800 block mb-1 font-bold text-sm tracking-wide" for="name">
+                                        For
+                                    </label>
+                                    <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" placeholder="For" name="for" value="{{$outgoing->for}}">
+                                </div>
+                                <div>
+                                    <label class="text-gray-800 block mb-1 font-bold text-sm tracking-wide" for="name">
+                                        Subject
+                                    </label>
+                                    <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" placeholder="Subject" name="subject" value="{{$outgoing->subject}}">
+                                </div>
+                                <div>
+                                    <label class="text-gray-800 block mb-1 font-bold text-sm tracking-wide" for="name">
+                                        Remarks
+                                    </label>
+                                    <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" placeholder="Remarks" name="remarks" value="{{$outgoing->remarks}}">
+                                </div>
+                                <div>
+                                    <label class="text-gray-800 block mb-1 font-bold text-sm tracking-wide" for="name">
+                                        Action
+                                    </label>
+                                    <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" placeholder="Action" name="action" value="{{$outgoing->action}}">
+                                </div>
+                                <div>
+                                    <label class="text-gray-800 block mb-1 font-bold text-sm tracking-wide" for="name">
+                                        Action Date
+                                    </label>
+                                    <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" placeholder="Date of Action" name="action_date" value="{{$outgoing->action_date}}">
+                                </div>
+                            </div>
+                            <div class=" mt-8 text-right">
+                                <button type="button" class="bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 border border-gray-300 rounded-lg shadow-sm mr-2" @click="open = false">
+                                    Close
+                                </button>
+                                <button type="submit" class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 border border-gray-700 rounded-lg shadow-sm" @click="open = false">
+                                    Save Changes
+                                </button>
+                            </div>
+                        </form>
+                        <!-- </div> -->
+                    </div>
+                </div>
+
                 <div class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800">
                     <span class="flex items-center col-span-3"> Showing {{ $outgoings->firstItem() }} - {{ $outgoings->lastItem() }} of {{ $outgoings->total() }} </span>
                     <span class="col-span-2"></span>
