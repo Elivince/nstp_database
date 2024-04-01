@@ -8,9 +8,9 @@ use Illuminate\Support\Facades\Auth;
 
 class IncomingController extends Controller
 {
-    public function showTable()
+    public function showTable(Request $request)
     {
-        $incomings = Incoming::all();
+        $incomings = Incoming::query()->sortable($request->except('page'))->paginate(10);
         return view('incoming', ['incomings' => $incomings]);
     }
 
