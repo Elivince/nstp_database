@@ -103,17 +103,17 @@
                 </x-responsive-nav-link>
             </div>
             <div class="pt-2 pb-3 space-y-1">
-                <x-responsive-nav-link :href="url('tracker')" :active="request()->routeIs('incoming')">
+                <x-responsive-nav-link :href="url('incoming')" :active="request()->routeIs('incoming')">
                     {{ __('Incoming') }}
                 </x-responsive-nav-link>
             </div>
             <div class="pt-2 pb-3 space-y-1">
-                <x-responsive-nav-link :href="url('tracker')" :active="request()->routeIs('outgoing')">
+                <x-responsive-nav-link :href="url('outgoing')" :active="request()->routeIs('outgoing')">
                     {{ __('Outgoing') }}
                 </x-responsive-nav-link>
             </div>
             <div class="pt-2 pb-3 space-y-1">
-                <x-responsive-nav-link :href="url('tracker')" :active="request()->routeIs('file-system')">
+                <x-responsive-nav-link :href="url('file-system')" :active="request()->routeIs('file-system')">
                     {{ __('File System') }}
                 </x-responsive-nav-link>
             </div>
