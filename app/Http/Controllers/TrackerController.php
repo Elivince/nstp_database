@@ -14,7 +14,13 @@ class TrackerController extends Controller
 
         $requests = Tracker::query()
             ->when($search, function ($query, $search) {
-                return $query->where('name', 'like', '%' . $search . '%');
+                return $query->where('name', 'like', '%' . $search . '%')
+                    ->orWhere('date', 'like', '%' . $search . '%')
+                    ->orWhere('component', 'like', '%' . $search . '%')
+                    ->orWhere('campus', 'like', '%' . $search . '%')
+                    ->orWhere('course', 'like', '%' . $search . '%')
+                    ->orWhere('graduation_year', 'like', '%' . $search . '%')
+                    ->orWhere('issued_by', 'like', '%' . $search . '%');
             })
             ->sortable($request->except('page'))
             ->paginate(10);
