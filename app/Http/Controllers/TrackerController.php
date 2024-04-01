@@ -10,7 +10,14 @@ class TrackerController extends Controller
 {
     public function showTable(Request $request)
     {
-        $requests = Tracker::query()->sortable($request->except('page'))->paginate(10);
+        $search = $request->input('search');
+
+        $requests = Tracker::query()
+            ->when($search, function ($query, $search) {
+                return $query->where('name', 'like', '%' . $search . '%');
+            })
+            ->sortable($request->except('page'))
+            ->paginate(10);
 
         return view('tracker', ['requests' => $requests]);
     }
