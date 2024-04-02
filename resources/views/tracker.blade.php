@@ -27,7 +27,7 @@
                     </div>
                     <div>
                         <label for="campus" class="block text-sm font-normal text-white">Campus</label>
-                        <input type="text" name="campus" id="campus" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full text-white  dark:bg-gray-800 shadow-sm sm:text-xs border-gray-300 rounded-md">
+                        <input type="text" name="campus" id="campus" class="h-8 text-sm mt-1 block w-full text-white  dark:bg-gray-800 shadow-sm sm:text-xs border-gray-300 rounded-md">
                     </div>
                     <div>
                         <label for="course" class="block text-sm font-normal text-white">Course</label>
@@ -69,20 +69,20 @@
                         <h2 class="text-white text-lg mb-2">List of Serial Number Request</h2>
                     </div>
                     <!-- component -->
-                    <div class="flex  dark:bg-gray-800 px-2 w-full max-w-[600px]">
-                        
-                        <form action="/tracker" method="GET">
-                            <input name="search" value="{{ request()->get('search') }}" type="text" class="w-full h-12  border-0 dark:bg-gray-800 flex bg-transparent pl-2 text-[#cccccc] text-sm outline-0" placeholder="Search" />
-                            <button type="submit" class="relative p-2">
-                                <svg width="30px" height="15px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <div class="flex  dark:bg-gray-800 px-2 w-full max-w-[400px]">
+                        <button type="submit" class="relative p-2">
+                            <svg width="30px" height="15px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0" />
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
-                                    <g id="SVGRepo_iconCarrier">
-                                        <path d="M14.9536 14.9458L21 21M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                    </g>
-                                </svg>
-                            </button>
+                                <g id="SVGRepo_bgCarrier" stroke-width="0" />
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+                                <g id="SVGRepo_iconCarrier">
+                                    <path d="M14.9536 14.9458L21 21M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </g>
+                            </svg>
+                        </button>
+                        <form action="/tracker" method="GET" class="w-full max-w-[300px] dark:bg-gray-800">
+                            @csrf
+                            <input name="search" value="{{ request()->get('search') }}" type="text" class="w-full  h-12 focus:ring-0 focus:border-0 focus:border-b-2  border-b-2 border-t-0 border-r-0 border-l-0 dark:bg-gray-800 flex bg-transparent pl-2 text-[#cccccc] text-sm outline-0" placeholder="Search" />
                         </form>
                     </div>
                     <table class="w-full">

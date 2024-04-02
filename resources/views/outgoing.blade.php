@@ -98,7 +98,8 @@
                                 <th class="px-5 py-3">Remarks</th>
                                 <th class="px-3 py-3">Action</th>
                                 <th class="px-3 py-3">Date of Action</th>
-                                <th class="px-4 py-3">Actions</th>
+                                <th class="px-2 py-3">Actions</th>
+                                <th class="px-0 py-3"></th>
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
@@ -113,10 +114,10 @@
                                 <td class="px-4 py-3">{{ $outgoing->remarks }}</td>
                                 <td class="px-4 py-3">{{ $outgoing->action }}</td>
                                 <td class="px-4 py-3">{{ $outgoing->action_date }}</td>
-                                <td class="px-4 py-3">
+                                <td class="px-2 py-3">
                                     <button @click="open = true">Edit</button>
                                 </td>
-                                <td class="px-4 py-3">
+                                <td class="px-2 py-3">
                                     <form action="/deleteOutgoing/{{ $outgoing->outgoing_no }}" method="POST">
                                         @csrf
                                         @method('DELETE')
