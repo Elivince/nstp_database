@@ -10,7 +10,22 @@ class IncomingController extends Controller
 {
     public function showTable(Request $request)
     {
-        $incomings = Incoming::query()->sortable($request->except('page'))->paginate(10);
+        $search = $request->input('search');
+
+        $incomings = Incoming::query()
+            ->when($search, function ($query, $search) {
+                return $query->where('received_by', 'like', '%' . $search . '%')
+                    ->orWhere('date', 'like', '%' . $search . '%')
+                    ->orWhere('from_office', 'like', '%' . $search . '%')
+                    ->orWhere('subject', 'like', '%' . $search . '%')
+                    ->orWhere('action_date', 'like', '%' . $search . '%')
+                    ->orWhere('action_received_by', 'like', '%' . $search . '%')
+                    ->orWhere('incoming_no', 'like', '%' . $search . '%')
+                    ->orWhere('remarks', 'like', '%' . $search . '%');
+            })
+            ->sortable($request->except('page'))
+            ->paginate(10);
+
         return view('incoming', ['incomings' => $incomings]);
     }
 
