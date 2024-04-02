@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TrackerController;
 use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\FileSystemController;
 use App\Http\Controllers\IncomingController;
 use App\Http\Controllers\OutgoingController;
 
@@ -70,7 +71,7 @@ Route::put('/viewEditOutgoing/{outgoing}', [OutgoingController::class, 'editReco
 Route::delete('/deleteOutgoing/{outgoing}', [OutgoingController::class, 'deleteRecordFromTable']);
 
 // FILE SYSTEM TRACKER ROUTES //
-Route::get('/file-system', [TrackerController::class, 'showtable'])->name('file-system');
+Route::get('/file-system', [FileSystemController::class, 'showtable'])->name('file-system');
 
 Route::get('/viewEditRequest/{request}', [TrackerController::class, 'showEditRequestPage']);
 Route::put('/viewEditRequest/{request}', [TrackerController::class, 'editRecordFromTable']);
