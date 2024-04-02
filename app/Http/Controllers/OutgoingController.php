@@ -10,7 +10,21 @@ class OutgoingController extends Controller
 {
     public function showTable(Request $request)
     {
-        $outgoings = Outgoing::query()->sortable($request->except('page'))->paginate(10);
+        $search = $request->input('search');
+
+        $outgoings = Outgoing::query()
+            ->when($search, function ($query, $search) {
+                return $query->where('outgoing_no', 'like', '%' . $search . '%')
+                    ->orWhere('date', 'like', '%' . $search . '%')
+                    ->orWhere('to_office', 'like', '%' . $search . '%')
+                    ->orWhere('for', 'like', '%' . $search . '%')
+                    ->orWhere('subject', 'like', '%' . $search . '%')
+                    ->orWhere('remarks', 'like', '%' . $search . '%')
+                    ->orWhere('action', 'like', '%' . $search . '%')
+                    ->orWhere('action_date', 'like', '%' . $search . '%');
+            })
+            ->sortable($request->except('page'))
+            ->paginate(10);
 
         return view('outgoing', ['outgoings' => $outgoings]);
     }
