@@ -73,7 +73,8 @@ Route::delete('/deleteOutgoing/{outgoing}', [OutgoingController::class, 'deleteR
 // FILE SYSTEM TRACKER ROUTES //
 Route::get('/file-system', [FileSystemController::class, 'showtable'])->name('file-system');
 
-Route::get('/viewEditRequest/{request}', [TrackerController::class, 'showEditRequestPage']);
-Route::put('/viewEditRequest/{request}', [TrackerController::class, 'editRecordFromTable']);
+Route::post('/uploadFile', [FileSystemController::class, 'uploadFile']);
+
+Route::delete('/deleteFile', [FileSystemController::class, 'deleteFile']);
 
 require __DIR__ . '/auth.php';
