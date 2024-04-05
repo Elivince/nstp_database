@@ -19,7 +19,7 @@
                 <div class="grid grid-cols-3 gap-4">
                     <div>
                         <label for="name" class="block text-sm font-normal text-white">Name</label>
-                        <input type="text" name="name" id="name" class="h-8 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full text-white shadow-sm sm:text-xs border-gray-300  dark:bg-gray-800 rounded-md text-sm">
+                        <input type="text" name="name" id="name" class="h-8 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full text-white shadow-sm sm:text-xs border-gray-300 dark:bg-gray-800 rounded-md text-sm" autocomplete="name">
                     </div>
                     <div>
                         <label for="component" class="block text-sm font-normal text-white">Component</label>
@@ -69,10 +69,9 @@
                         <h2 class="text-white text-lg mb-2">List of Serial Number Request</h2>
                     </div>
                     <!-- component -->
-                    <div class="flex  dark:bg-gray-800 px-2 w-full max-w-[400px]">
-                        <button type="submit" class="relative p-2">
+                    <div class="flex  dark:bg-gray-800 px-2 w-full rounded-t-xl">
+                        <button type="submit" class="relative pt-3">
                             <svg width="30px" height="15px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-
                                 <g id="SVGRepo_bgCarrier" stroke-width="0" />
                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
                                 <g id="SVGRepo_iconCarrier">
@@ -80,15 +79,14 @@
                                 </g>
                             </svg>
                         </button>
-                        <form action="/tracker" method="GET" class="w-full max-w-[300px] dark:bg-gray-800">
-                            @csrf
-                            <input name="search" value="{{ request()->get('search') }}" type="text" class="w-full  h-12 focus:ring-0 focus:border-0 focus:border-b-2  border-b-2 border-t-0 border-r-0 border-l-0 dark:bg-gray-800 flex bg-transparent pl-2 text-[#cccccc] text-sm outline-0" placeholder="Search" />
+                        <form action="/incoming" method="GET" class="w-full max-w-[300px] dark:bg-gray-800 pb-4 pt-4">
+                            <input name="search" value="{{ request()->get('search') }}" type="text" class="w-full pt-4 h-10 focus:ring-0 focus:border-0 focus:border-b-2  border-b-2 border-t-0 border-r-0 border-l-0 dark:bg-gray-800 flex bg-transparent pl-2 text-[#cccccc] text-sm outline-0" placeholder="Search" />
                         </form>
                     </div>
                     <table class="w-full">
                         <thead>
-                            <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                                <th class="px-4 py-3">
+                            <tr class="text-xs font-semibold text-left tracking-wide text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                                <th class="pl-4 py-3 text-center">
                                     <button class="flex items-center gap-x-1 focus:outline-none">
                                         <span>@sortablelink('date', 'DATE ISSUED')</span>
                                         <svg class="h-3" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -98,8 +96,8 @@
                                         </svg>
                                     </button>
                                 </th>
-                                <th class="px-3 py-3">Serial Number</th>
-                                <th class="px-4 py-3">
+                                <th class="py-3">Serial Number</th>
+                                <th class="py-3 pl-2">
                                     <button class="flex items-center gap-x-1 focus:outline-none">
                                         <span>@sortablelink('name', 'NAME')</span>
                                         <svg class=" h-3" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -109,7 +107,7 @@
                                         </svg>
                                     </button>
                                 </th>
-                                <th class="px-2 py-3">
+                                <th class="py-3 pl-2">
                                     <button class="flex items-center gap-x-1 focus:outline-none">
                                         <span> @sortablelink('name', 'COMPONENT')</span>
                                         <svg class="h-3" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -119,7 +117,7 @@
                                         </svg>
                                     </button>
                                 </th>
-                                <th class="px-4 py-3">
+                                <th class="py-3 pl-2">
                                     <button class="flex items-center gap-x-1 focus:outline-none">
                                         <span> @sortablelink('name', 'CAMPUS')</span>
                                         <svg class="h-3" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -129,7 +127,7 @@
                                         </svg>
                                     </button>
                                 </th>
-                                <th class="px-5 py-3">
+                                <th class="py-3 pl-2">
                                     <button class="flex items-center gap-x-1 focus:outline-none">
                                         <span>@sortablelink('name', 'COURSE')</span>
                                         <svg class="h-3" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -140,9 +138,9 @@
                                     </button>
                                 </th>
 
-                                <th class="px-3 py-3">
+                                <th class="py-3 pl-2">
                                     <button class="flex items-center gap-x-1">
-                                        <span>@sortablelink('date', 'YEAR GRADUATED')</span>
+                                        <span>@sortablelink('date', 'S.Y GRAD.')</span>
                                         <svg class="h-3" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M2.13347 0.0999756H2.98516L5.01902 4.79058H3.86226L3.45549 3.79907H1.63772L1.24366 4.79058H0.0996094L2.13347 0.0999756ZM2.54025 1.46012L1.96822 2.92196H3.11227L2.54025 1.46012Z" fill="currentColor" stroke="currentColor" stroke-width="0.1" />
                                             <path d="M0.722656 9.60832L3.09974 6.78633H0.811638V5.87109H4.35819V6.78633L2.01925 9.60832H4.43446V10.5617H0.722656V9.60832Z" fill="currentColor" stroke="currentColor" stroke-width="0.1" />
@@ -150,8 +148,8 @@
                                         </svg>
                                     </button>
                                 </th>
-                                <th class="px-4 py-3">Status</th>
-                                <th class="px-4 py-3">
+                                <th class="py-3 pl-2">Status</th>
+                                <th class="py-3 pl-2">
                                     <button class="flex items-center gap-x-1 focus:outline-none">
                                         <span>@sortablelink('name', 'ISSUED BY')</span>
                                         <svg class="h-3" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -161,27 +159,27 @@
                                         </svg>
                                     </button>
                                 </th>
-                                <th class="px-1 py-3">Actions</th>
-                                <th class="px-0 py-3"></th>
+                                <th class="py-3 pl-2">Actions</th>
+                                <th class="py-3"></th>
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
                             @foreach ($requests as $request)
                             <!-- Add your data here -->
                             <tr class="text-sm bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-white dark:text-gray-400">
-                                <td class="px-4 py-3 ">{{ $request->date }}</td>
-                                <td class="px-4 py-3">{{ $request->serial_no }}</td>
-                                <td class="px-4 py-3">{{ $request->name }}</td>
-                                <td class="px-4 py-3">{{ $request->component }}</td>
-                                <td class="px-4 py-3">{{ $request->campus }}</td>
-                                <td class="px-4 py-3">{{ $request->course }}</td>
-                                <td class="px-4 py-3">{{ $request->graduation_year }}</td>
-                                <td class="px-4 py-3">{{ $request->remarks }}</td>
-                                <td class="px-4 py-3">{{ $request->issued_by }}</td>
-                                <td class="px-4 py-3">
-                                    <button @click="open = true">Edit</button>
+                                <td class="pl-4 py-3">{{ $request->date }}</td>
+                                <td class="py-3">{{ $request->serial_no }}</td>
+                                <td class="py-3 pl-2">{{ $request->name }}</td>
+                                <td class="py-3 pl-2">{{ $request->component }}</td>
+                                <td class="py-3 pl-2">{{ $request->campus }}</td>
+                                <td class="py-3 pl-2">{{ $request->course }}</td>
+                                <td class="py-3 pl-2">{{ $request->graduation_year }}</td>
+                                <td class="py-3 pl-2">{{ $request->remarks }}</td>
+                                <td class="py-3 pl-2">{{ $request->issued_by }}</td>
+                                <td class="py-3 pl-2">
+                                    <button @click=" open=true" action="/viewEditRequest/{{$request->request_id}}" method="POST">Edit</button>
                                 </td>
-                                <td class="px-4 py-3">
+                                <td class="pl-0 pr-5 py-3">
                                     <form action="/deleteRequest/{{ $request->request_id }}" method="POST">
                                         @csrf
                                         @method('DELETE')
@@ -203,7 +201,7 @@
                         </div>
                         <!-- <div class="shadow rounded-lg bg-white overflow-hidden w-full block p-8"> -->
 
-                        <form action="/viewEditRequest/{{$request->request_id}}" method="POST" class="shadow rounded-lg bg-white overflow-hidden w-full block p-8">
+                        <form id="editRecordForm" action="/viewEditRequest/{{$request->request_id}}" method="POST" class="shadow rounded-lg bg-white overflow-hidden w-full block p-8">
                             @csrf
                             @method('PUT')
                             <h2 class="font-bold text-2xl mb-6 text-gray-800 border-b pb-2">
@@ -214,10 +212,10 @@
                                     <label class="text-gray-800 block mb-1 font-bold text-sm tracking-wide" for="name">
                                         Name
                                     </label>
-                                    <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="name" name="name" type="text" placeholder="Name" value="{{$request->name}}">
+                                    <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="name" name="name" type="text" placeholder="Name" value="{{$request->name}}" autocomplete="name">
                                 </div>
                                 <div>
-                                    <label class="text-gray-800 block mb-1 font-bold text-sm tracking-wide" for="component">
+                                    <label class=" text-gray-800 block mb-1 font-bold text-sm tracking-wide" for="component">
                                         Component
                                     </label>
                                     <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="component" name="component" type="text" placeholder="Component" value="{{$request->component}}">
@@ -267,6 +265,8 @@
                     </div>
                 </div>
             </div>
+
+
             <div class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800">
                 <span class="flex items-center col-span-3"> Showing {{ $requests->firstItem() }} - {{ $requests->lastItem() }} of {{ $requests->total() }} </span>
                 <span class="col-span-2"></span>
