@@ -74,11 +74,8 @@ Route::delete('/deleteOutgoing/{outgoing}', [OutgoingController::class, 'deleteR
 // FILE SYSTEM TRACKER ROUTES //
 Route::get('/file-system', [FileSystemController::class, 'showtable'])->name('file-system');
 
-<<<<<<< Updated upstream
 Route::post('/uploadFile', [FileSystemController::class, 'uploadFile']);
 
 Route::delete('/deleteFile', [FileSystemController::class, 'deleteFile']);
-=======
->>>>>>> Stashed changes
 
 require __DIR__ . '/auth.php';
