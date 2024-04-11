@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('remarks');
             $table->string('action')->nullable();
             $table->string('action_date')->nullable();
-            $table->string('action_received_by')->nullable();
         });
     }
 

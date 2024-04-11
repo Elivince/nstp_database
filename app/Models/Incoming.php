@@ -26,6 +26,5 @@ class incoming extends Model
         'remarks',
         'action',
         'action_date',
-        'action_received_by'
     ];
 }

@@ -19,7 +19,6 @@ class IncomingController extends Controller
                     ->orWhere('from_office', 'like', '%' . $search . '%')
                     ->orWhere('subject', 'like', '%' . $search . '%')
                     ->orWhere('action_date', 'like', '%' . $search . '%')
-                    ->orWhere('action_received_by', 'like', '%' . $search . '%')
                     ->orWhere('incoming_no', 'like', '%' . $search . '%')
                     ->orWhere('remarks', 'like', '%' . $search . '%');
             })
