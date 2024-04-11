@@ -9,7 +9,8 @@ class FileSystemController extends Controller
 {
     public function showTable()
     {
-        return view('file-system');
+        //return view('file-system');
+        return view('navigateToDrive');
     }
 
     public function uploadFile(Request $request)
