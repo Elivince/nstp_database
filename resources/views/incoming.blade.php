@@ -20,23 +20,38 @@
                     <div>
                         <label for="from_office" class="block text-sm font-normal text-white">From what office</label>
                         <input type="text" name="from_office" id="from_office" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full text-white  dark:bg-gray-800 shadow-sm sm:text-xs border-gray-300 rounded-md">
+                        @error('from_office')
+                            <div class="text-red-500 text-xs mt-1">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div>
                         <label for="subject" class="block text-sm font-normal text-white">Subject</label>
                         <input type="text" name="subject" id="subject" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full text-white  dark:bg-gray-800 shadow-sm sm:text-xs border-gray-300 rounded-md">
+                        @error('subject')
+                            <div class="text-red-500 text-xs mt-1">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div>
                         <label for="remarks" class="block text-sm font-normal text-white">Remarks</label>
                         <input type="text" name="remarks" id="remarks" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full  dark:bg-gray-800 text-white shadow-sm sm:text-xs border-gray-300 rounded-md">
+                        @error('remarks')
+                            <div class="text-red-500 text-xs mt-1">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div>
                         <label for="action" class="block text-sm font-normal text-white">Action</label>
                         <input type="text" name="action" id="action" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-xs  dark:bg-gray-800 text-white border-gray-300 rounded-md">
+                        @error('action')
+                            <div class="text-red-500 text-xs mt-1">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <div>
                         <label for="action_date" class="block text-sm font-normal text-white">Date of Action</label>
                         <input type="text" name="action_date" id="action_date" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-xs  dark:bg-gray-800 text-white border-gray-300 rounded-md">
+                        @error('action_date')
+                            <div class="text-red-500 text-xs mt-1">{{ $message }}</div>
+                        @enderror
                     </div>
                 </div>
             </div>
