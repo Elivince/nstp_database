@@ -23,6 +23,7 @@ class OutgoingController extends Controller
                     ->orWhere('action', 'like', '%' . $search . '%')
                     ->orWhere('action_date', 'like', '%' . $search . '%');
             })
+            ->orderByDesc('date')
             ->sortable($request->except('page'))
             ->paginate(10);
 
@@ -32,11 +33,11 @@ class OutgoingController extends Controller
     public function addRecordToTable(Request $request)
     {
         $incomingFields = $request->validate([
-            'to_office' => 'required',
-            'for' => 'required',
-            'subject' => 'required',
-            'remarks'=> 'required',
-            'action' => 'nullable',
+            'to_office' => 'required|max:100',
+            'for' => 'required|max:100',
+            'subject' => 'required|max:100',
+            'remarks'=> 'required|max:255',
+            'action' => 'nullable|max:255',
             'action_date' => 'nullable'
         ]);
 
@@ -65,11 +66,11 @@ class OutgoingController extends Controller
     public function editRecordFromTable(Outgoing $outgoing, Request $request)
     {
         $incomingFields = $request->validate([
-            'to_office' => 'required',
-            'for' => 'required',
-            'subject' => 'required',
-            'remarks'=> 'required',
-            'action' => 'nullable',
+            'to_office' => 'required|max:100',
+            'for' => 'required|max:100',
+            'subject' => 'required|max:100',
+            'remarks'=> 'required|max:255',
+            'action' => 'nullable|max:255',
             'action_date' => 'nullable'
         ]);
 
