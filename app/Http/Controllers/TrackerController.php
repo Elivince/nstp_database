@@ -35,10 +35,15 @@ class TrackerController extends Controller
             'component' => 'required',
             'campus' => 'required',
             'course' => 'required',
-            'graduation_year' => 'required',
+            'graduation_year' => ['required', 'regex:/^\d{4}$/'],
             'serial_no' => 'nullable',
             'remarks' => 'nullable',
-        ]);
+        ], 
+            [
+                'graduation_year.required' => 'The year graduated is required.',
+                'graduation_year.regex' => 'The year graduated must be a valid year (YYYY).'
+            ]
+        );
 
         $incomingFields['date'] = today();
 
@@ -57,7 +62,7 @@ class TrackerController extends Controller
         return redirect('/tracker');
     }
 
-    public function showEditRequestPage(Tracker $request)
+    public function showEditRequestPage(Tracker $request)   
     {
         return view('editRequest', ['request' => $request]);
     }
@@ -65,13 +70,16 @@ class TrackerController extends Controller
     public function editRecordFromTable(Tracker $request, Request $requestForm)
     {
         $incomingFields = $requestForm->validate([
-            'name' => 'required',
-            'component' => 'required',
-            'campus' => 'required',
-            'course' => 'required',
-            'graduation_year' => 'required',
+            'name' => 'required|max:100',
+            'component' => 'required|max:100',
+            'campus' => 'required|max:100',
+            'course' => 'required|max:100',
+            'graduation_year' => ['required', 'regex:/^\d{4}$/'],
             'serial_no' => 'nullable',
             'remarks' => 'nullable',
+        ], [
+            'graduation_year.required' => 'This field is required.',
+            'graduation_year.regex' => 'The year graduated must be a valid year (YYYY).'
         ]);
 
         $incomingFields['name'] = strip_tags($incomingFields['name']);

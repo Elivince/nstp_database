@@ -20,26 +20,44 @@
                     <div>
                         <label for="name" class="block text-sm font-normal text-white">Name</label>
                         <input type="text" name="name" id="name" class="h-8 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full text-white shadow-sm sm:text-xs border-gray-300  dark:bg-gray-800 rounded-md text-sm">
+                        @error('name')
+                            <div class="text-red-500 text-xs mt-1">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div>
                         <label for="component" class="block text-sm font-normal text-white">Component</label>
                         <input type="text" name="component" id="component" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block text-white  dark:bg-gray-800 w-full shadow-sm sm:text-xs border-gray-300 rounded-md">
+                        @error('component')
+                            <div class="text-red-500 text-xs mt-1">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div>
                         <label for="campus" class="block text-sm font-normal text-white">Campus</label>
                         <input type="text" name="campus" id="campus" class="h-8 text-sm mt-1 block w-full text-white  dark:bg-gray-800 shadow-sm sm:text-xs border-gray-300 rounded-md">
+                        @error('campus')
+                            <div class="text-red-500 text-xs mt-1">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div>
                         <label for="course" class="block text-sm font-normal text-white">Course</label>
                         <input type="text" name="course" id="course" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full text-white  dark:bg-gray-800 shadow-sm sm:text-xs border-gray-300 rounded-md">
+                        @error('course')
+                            <div class="text-red-500 text-xs mt-1">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div>
                         <label for="graduation_year" class="block text-sm font-normal text-white">Year Graduated</label>
                         <input type="text" name="graduation_year" id="graduation_year" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full  dark:bg-gray-800 text-white shadow-sm sm:text-xs border-gray-300 rounded-md">
+                        @error('graduation_year')
+                            <div class="text-red-500 text-xs mt-1">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div>
                         <label for="serial_no" class="block text-sm font-normal text-white">Serial Number</label>
                         <input type="text" name="serial_no" id="serialno" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-xs  dark:bg-gray-800 text-white border-gray-300 rounded-md">
+                        @error('serial_no')
+                            <div class="text-red-500 text-xs mt-1">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div>
                         <label for="remarks" class="block text-sm font-normal text-white">Status</label>
@@ -53,6 +71,9 @@
                                 <option value="Denied" class="px-10 py-10 h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-xs  dark:bg-gray-800 text-white border-gray-300 rounded-md">Denied</option>
                             </select>
                         </div>
+                        @error('remarks')
+                            <div class="text-red-500 text-xs mt-1">{{ $message }}</div>
+                        @enderror
                     </div>
                 </div>
             </div>
