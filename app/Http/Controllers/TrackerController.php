@@ -22,6 +22,7 @@ class TrackerController extends Controller
                     ->orWhere('graduation_year', 'like', '%' . $search . '%')
                     ->orWhere('issued_by', 'like', '%' . $search . '%');
             })
+            ->orderByDesc('date')
             ->sortable($request->except('page'))
             ->paginate(10);
 
