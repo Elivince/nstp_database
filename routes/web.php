@@ -48,6 +48,7 @@ Route::post('/addRequest', [TrackerController::class, 'addRecordToTable']);
 Route::get('/viewEditRequest/{request}', [TrackerController::class, 'showEditRequestPage']);
 Route::put('/viewEditRequest/{request}', [TrackerController::class, 'editRecordFromTable']);
 
+
 Route::delete('/deleteRequest/{request}', [TrackerController::class, 'deleteRecordFromTable']);
 
 // INCOMING TRACKER ROUTES //
