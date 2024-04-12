@@ -1,8 +1,8 @@
 <x-app-layout>
     <div class="mt-0">
         <div class="flex flex-col items-center justify-center">
-            <h1 class="text-4xl font-bold text-white">NSTP Database</h1>
-            <p class="text-white">Welcome to the NSTP Database</p>
+            <h1 class="text-4xl font-bold text-gray-400">NSTP Database</h1>
+            <p class="text-gray-400">Welcome to the NSTP Database</p>
         </div>
 
     </div>
@@ -11,83 +11,91 @@
             display: none;
         }
     </style>
-    <div x-cloak x-data="{open:false}" class="flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
+    <div x-cloak x-data="{open:false}" class="flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-gray-400">
         <!-- S.N Table -->
+
         <form id="addRecordForm" action="/addRequest" method="POST">
             @csrf
-            <div class="mx-40 mt-6 text-gray-500  dark:text-gray-200 leading-tight">
-                <div class="grid grid-cols-3 gap-4">
-                    <div>
-                        <label for="name" class="block text-sm font-normal text-white">Name</label>
-                        <input type="text" name="name" id="name" class="h-8 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full text-white shadow-sm sm:text-xs border-gray-300  dark:bg-gray-800 rounded-md text-sm">
-                        @error('name')
+
+            <div class=" dark:bg-gray-800 px-2 rounded-xl mt-16 pb-7 py-5 mx-10">
+
+                <h2 class="text-gray-300 pl-2 text-2xl text-center mb-2 pb-5 tracking-wider">Serial Number Request Form</h2>
+
+                <div class="mx-20 mt-6 text-gray-500 leading-tight">
+                    <div class="grid grid-cols-3 gap-4">
+                        <div>
+                            <label for="name" class="block text-sm font-normal text-gray-400">Name</label>
+                            <input type="text" name="name" id="name" class="h-8 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full text-gray-400 shadow-sm sm:text-xs border-gray-300  dark:bg-gray-800 rounded-md text-sm">
+                            @error('name')
                             <div class="text-red-500 text-xs mt-1">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div>
-                        <label for="component" class="block text-sm font-normal text-white">Component</label>
-                        <input type="text" name="component" id="component" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block text-white  dark:bg-gray-800 w-full shadow-sm sm:text-xs border-gray-300 rounded-md">
-                        @error('component')
-                            <div class="text-red-500 text-xs mt-1">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div>
-                        <label for="campus" class="block text-sm font-normal text-white">Campus</label>
-                        <input type="text" name="campus" id="campus" class="h-8 text-sm mt-1 block w-full text-white  dark:bg-gray-800 shadow-sm sm:text-xs border-gray-300 rounded-md">
-                        @error('campus')
-                            <div class="text-red-500 text-xs mt-1">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div>
-                        <label for="course" class="block text-sm font-normal text-white">Course</label>
-                        <input type="text" name="course" id="course" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full text-white  dark:bg-gray-800 shadow-sm sm:text-xs border-gray-300 rounded-md">
-                        @error('course')
-                            <div class="text-red-500 text-xs mt-1">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div>
-                        <label for="graduation_year" class="block text-sm font-normal text-white">Year Graduated</label>
-                        <input type="text" name="graduation_year" id="graduation_year" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full  dark:bg-gray-800 text-white shadow-sm sm:text-xs border-gray-300 rounded-md">
-                        @error('graduation_year')
-                            <div class="text-red-500 text-xs mt-1">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div>
-                        <label for="serial_no" class="block text-sm font-normal text-white">Serial Number</label>
-                        <input type="text" name="serial_no" id="serialno" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-xs  dark:bg-gray-800 text-white border-gray-300 rounded-md">
-                        @error('serial_no')
-                            <div class="text-red-500 text-xs mt-1">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div>
-                        <label for="remarks" class="block text-sm font-normal text-white">Status</label>
-                        <div class="input-container h-8 text-sm mt-1 block w-full shadow-sm sm:text-sm  dark:bg-gray-800 text-white rounded-md">
-                            <i class=" fa fa-key icon"></i>
-                            <select class="input-field px-28 h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-xs  dark:bg-gray-800 text-white border-gray-300 rounded-md" name="remarks">
-                                <option value="" class="px-10 py-10 h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-xs  dark:bg-gray-800 text-white border-gray-300 rounded-md" selected disabled>Select Status</option>
-                                <option value="Approved" class="px-10 py-10 h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-xs  dark:bg-gray-800 text-white border-gray-300 rounded-md">Approved</option>
-                                <option value="Pending" class="px-10 py-10 h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-xs  dark:bg-gray-800 text-white border-gray-300 rounded-md">Pending</option>
-                                <option value="Expired" class="px-10 py-10 h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-xs  dark:bg-gray-800 text-white border-gray-300 rounded-md">Expired</option>
-                                <option value="Denied" class="px-10 py-10 h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-xs  dark:bg-gray-800 text-white border-gray-300 rounded-md">Denied</option>
-                            </select>
+                            @enderror
                         </div>
-                        @error('remarks')
+                        <div>
+                            <label for="component" class="block text-sm font-normal text-gray-400">Component</label>
+                            <input type="text" name="component" id="component" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block text-gray-400  dark:bg-gray-800 w-full shadow-sm sm:text-xs border-gray-300 rounded-md">
+                            @error('component')
                             <div class="text-red-500 text-xs mt-1">{{ $message }}</div>
-                        @enderror
+                            @enderror
+                        </div>
+                        <div>
+                            <label for="campus" class="block text-sm font-normal text-gray-400">Campus</label>
+                            <input type="text" name="campus" id="campus" class="h-8 text-sm mt-1 block w-full text-gray-400  dark:bg-gray-800 shadow-sm sm:text-xs border-gray-300 rounded-md">
+                            @error('campus')
+                            <div class="text-red-500 text-xs mt-1">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div>
+                            <label for="course" class="block text-sm font-normal text-gray-400">Course</label>
+                            <input type="text" name="course" id="course" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full text-gray-400  dark:bg-gray-800 shadow-sm sm:text-xs border-gray-300 rounded-md">
+                            @error('course')
+                            <div class="text-red-500 text-xs mt-1">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div>
+                            <label for="graduation_year" class="block text-sm font-normal text-gray-400">Year Graduated</label>
+                            <input type="text" name="graduation_year" id="graduation_year" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full  dark:bg-gray-800 text-gray-400 shadow-sm sm:text-xs border-gray-300 rounded-md">
+                            @error('graduation_year')
+                            <div class="text-red-500 text-xs mt-1">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div>
+                            <label for="serial_no" class="block text-sm font-normal text-gray-400">Serial Number</label>
+                            <input type="text" name="serial_no" id="serialno" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-xs  dark:bg-gray-800 text-gray-400 border-gray-300 rounded-md">
+                            @error('serial_no')
+                            <div class="text-red-500 text-xs mt-1">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div>
+                            <label for="remarks" class="block text-sm font-normal text-gray-400">Status</label>
+                            <div class="input-container h-8 text-sm mt-1 block w-full shadow-sm sm:text-sm  dark:bg-gray-800 text-gray-400 rounded-md">
+                                <i class=" fa fa-key icon"></i>
+                                <select class="input-field px-28 h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-xs  dark:bg-gray-800 text-gray-400 border-gray-300 rounded-md" name="remarks">
+                                    <option value="" class="px-10 py-10 h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-xs  dark:bg-gray-800 text-gray-400 border-gray-300 rounded-md" selected disabled>Select Status</option>
+                                    <option value="Approved" class="px-10 py-10 h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-xs  dark:bg-gray-800 text-gray-400 border-gray-300 rounded-md">Approved</option>
+                                    <option value="Pending" class="px-10 py-10 h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-xs  dark:bg-gray-800 text-gray-400 border-gray-300 rounded-md">Pending</option>
+                                    <option value="Expired" class="px-10 py-10 h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-xs  dark:bg-gray-800 text-gray-400 border-gray-300 rounded-md">Expired</option>
+                                    <option value="Denied" class="px-10 py-10 h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-xs  dark:bg-gray-800 text-gray-400 border-gray-300 rounded-md">Denied</option>
+                                </select>
+                            </div>
+                            @error('remarks')
+                            <div class="text-red-500 text-xs mt-1">{{ $message }}</div>
+                            @enderror
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="flex justify-center mt-6">
-                <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-normal text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                    Add Record
-                </button>
+
+                <div class="flex justify-center mt-10">
+                    <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-normal text-gray-200 bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        Add Record
+                    </button>
+                </div>
             </div>
         </form>
         <div class="mt-16 mx-10 mb-16">
             <div class="w-full overflow-hidden rounded-lg shadow-xs">
                 <div class="w-full overflow-x-auto">
-                    <div class="flex flex-col items-start">
-                        <h2 class="text-white text-lg mb-2">List of Serial Number Request</h2>
+                    <div class="flex flex-col items-start px-2 pt-5">
+                        <h2 class="text-gray-300 text-center text-2xl mb-2 pb-5 tracking-wider">List of Serial Number Request</h2>
                     </div>
                     <!-- component -->
                     <div class="flex  dark:bg-gray-800 px-2 w-full rounded-t-xl">
@@ -100,7 +108,7 @@
                                 </g>
                             </svg>
                         </button>
-                        <form action="/incoming" method="GET" class="w-full max-w-[300px] dark:bg-gray-800 pb-4 pt-4">
+                        <form action="/incoming" method="GET" class="relative w-full max-w-[300px] dark:bg-gray-800 pb-4 pt-4">
                             <input name="search" value="{{ request()->get('search') }}" type="text" class="w-full pt-4 h-10 focus:ring-0 focus:border-0 focus:border-b-2  border-b-2 border-t-0 border-r-0 border-l-0 dark:bg-gray-800 flex bg-transparent pl-2 text-[#cccccc] text-sm outline-0" placeholder="Search" />
                         </form>
                     </div>
@@ -187,7 +195,7 @@
                         <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
                             @foreach ($requests as $request)
                             <!-- Add your data here -->
-                            <tr class="text-sm bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-white dark:text-gray-400">
+                            <tr class="text-sm bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-400 dark:text-gray-400">
                                 <td class="pl-4 py-3">{{ $request->date }}</td>
                                 <td class="py-3">{{ $request->serial_no }}</td>
                                 <td class="py-3 pl-2">{{ $request->name }}</td>
@@ -277,7 +285,7 @@
                                 <button type="button" class="bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 border border-gray-300 rounded-lg shadow-sm mr-2" @click="open = false">
                                     Close
                                 </button>
-                                <button type="submit" class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 border border-gray-700 rounded-lg shadow-sm" @click="open = false">
+                                <button type="submit" class="bg-gray-800 hover:bg-gray-700 text-gray-400 font-semibold py-2 px-4 border border-gray-700 rounded-lg shadow-sm" @click="open = false">
                                     Save Changes
                                 </button>
                             </div>

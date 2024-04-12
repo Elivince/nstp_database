@@ -1,8 +1,8 @@
 <x-app-layout>
     <div class="mt-0">
         <div class="flex flex-col items-center justify-center">
-            <h1 class="text-4xl font-bold text-white">NSTP Database</h1>
-            <p class="text-white">Welcome to the NSTP Database</p>
+            <h1 class="text-4xl font-bold text-gray-400">NSTP Database</h1>
+            <p class="text-gray-400">Welcome to the NSTP Database</p>
         </div>
 
     </div>
@@ -11,61 +11,65 @@
             display: none;
         }
     </style>
-    <div x-cloak x-data="{open:false}" class="flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
+    <div x-cloak x-data="{open:false}" class="flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-gray-400">
         <!-- S.N Table -->
         <form id="addRecordForm" action="/addIncoming" method="POST">
             @csrf
-            <div class="mx-40 mt-6 text-gray-500  dark:text-gray-200 leading-tight">
-                <div class="grid grid-cols-3 gap-4">
-                    <div>
-                        <label for="from_office" class="block text-sm font-normal text-white">From what office</label>
-                        <input type="text" name="from_office" id="from_office" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full text-white  dark:bg-gray-800 shadow-sm sm:text-xs border-gray-300 rounded-md">
-                        @error('from_office')
-                            <div class="text-red-500 text-xs mt-1">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div>
-                        <label for="subject" class="block text-sm font-normal text-white">Subject</label>
-                        <input type="text" name="subject" id="subject" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full text-white  dark:bg-gray-800 shadow-sm sm:text-xs border-gray-300 rounded-md">
-                        @error('subject')
-                            <div class="text-red-500 text-xs mt-1">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div>
-                        <label for="remarks" class="block text-sm font-normal text-white">Remarks</label>
-                        <input type="text" name="remarks" id="remarks" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full  dark:bg-gray-800 text-white shadow-sm sm:text-xs border-gray-300 rounded-md">
-                        @error('remarks')
-                            <div class="text-red-500 text-xs mt-1">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div>
-                        <label for="action" class="block text-sm font-normal text-white">Action</label>
-                        <input type="text" name="action" id="action" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-xs  dark:bg-gray-800 text-white border-gray-300 rounded-md">
-                        @error('action')
-                            <div class="text-red-500 text-xs mt-1">{{ $message }}</div>
-                        @enderror
-                    </div>
+            <div class=" dark:bg-gray-800 px-2 rounded-xl mt-16 pb-7 py-5 mx-10">
 
-                    <div>
-                        <label for="action_date" class="block text-sm font-normal text-white">Date of Action</label>
-                        <input type="text" name="action_date" id="action_date" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-xs  dark:bg-gray-800 text-white border-gray-300 rounded-md">
-                        @error('action_date')
+                <h2 class="text-gray-300 pl-2 text-2xl text-center mb-2 pb-5 tracking-wider">Incoming Communication Tracker</h2>
+                <div class="mx-20 mt-6 text-gray-500  dark:text-gray-200 leading-tight">
+                    <div class="grid grid-cols-3 gap-4">
+                        <div>
+                            <label for="from_office" class="block text-sm font-normal text-gray-400">From what office</label>
+                            <input type="text" name="from_office" id="from_office" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full text-gray-400  dark:bg-gray-800 shadow-sm sm:text-xs border-gray-300 rounded-md">
+                            @error('from_office')
                             <div class="text-red-500 text-xs mt-1">{{ $message }}</div>
-                        @enderror
+                            @enderror
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-normal text-gray-400">Subject</label>
+                            <input type="text" name="subject" id="subject" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full text-gray-400  dark:bg-gray-800 shadow-sm sm:text-xs border-gray-300 rounded-md">
+                            @error('subject')
+                            <div class="text-red-500 text-xs mt-1">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div>
+                            <label for="remarks" class="block text-sm font-normal text-gray-400">Remarks</label>
+                            <input type="text" name="remarks" id="remarks" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full  dark:bg-gray-800 text-gray-400 shadow-sm sm:text-xs border-gray-300 rounded-md">
+                            @error('remarks')
+                            <div class="text-red-500 text-xs mt-1">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div>
+                            <label for="action" class="block text-sm font-normal text-gray-400">Action</label>
+                            <input type="text" name="action" id="action" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-xs  dark:bg-gray-800 text-gray-400 border-gray-300 rounded-md">
+                            @error('action')
+                            <div class="text-red-500 text-xs mt-1">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div>
+                            <label for="action_date" class="block text-sm font-normal text-gray-400">Date of Action</label>
+                            <input type="text" name="action_date" id="action_date" class="h-8 text-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-xs  dark:bg-gray-800 text-gray-400 border-gray-300 rounded-md">
+                            @error('action_date')
+                            <div class="text-red-500 text-xs mt-1">{{ $message }}</div>
+                            @enderror
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="flex justify-center mt-6">
-                <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-normal text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                    Add Record
-                </button>
+                <div class="flex justify-center mt-10">
+                    <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-normal text-gray-200 bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        Add Record
+                    </button>
+                </div>
             </div>
         </form>
         <div class="mt-16 mx-10 mb-16">
             <div class="w-full overflow-hidden rounded-lg shadow-xs">
                 <div class="w-full overflow-x-auto">
-                    <div class="flex flex-col items-start">
-                        <h2 class="text-white text-lg mb-2">List of Incoming Communication</h2>
+                    <div class="flex flex-col items-start px-2 pt-5">
+                        <h2 class="text-gray-300 text-center text-2xl mb-2 pb-5 tracking-wider">List of Incoming Communication</h2>
                     </div>
                     <!-- component -->
                     <div class="flex  dark:bg-gray-800 px-2 w-full rounded-t-xl">
@@ -174,7 +178,7 @@
                         <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
                             @foreach ($incomings as $incoming)
                             <!-- Add your data here -->
-                            <tr class="text-sm bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-white dark:text-gray-400">
+                            <tr class="text-sm bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-400 dark:text-gray-400">
                                 <td class="px-4 py-3">{{ $incoming->date }}</td>
                                 <td class="px-4 py-3">{{ "NSTP-" . \Carbon\Carbon::parse($incoming->date)->format('Y-m') . "-" . $incoming->incoming_no }}</td>
                                 <td class="px-4 py-3">{{ $incoming->received_by }}</td>
@@ -252,7 +256,7 @@
                                 <button type="button" class="bg-white hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 border border-gray-300 rounded-lg shadow-sm mr-2" @click="open = false">
                                     Close
                                 </button>
-                                <button type="submit" class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 border border-gray-700 rounded-lg shadow-sm" @click="open = false">
+                                <button type="submit" class="bg-gray-800 hover:bg-gray-700 text-gray-400 font-semibold py-2 px-4 border border-gray-700 rounded-lg shadow-sm" @click="open = false">
                                     Save Changes
                                 </button>
                             </div>

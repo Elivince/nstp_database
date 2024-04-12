@@ -105,7 +105,11 @@
                              </a>
                          </li>
                      </ul>
-                     <p class="mb-14 px-5 py-3 hidden md:block text-center text-xs">All Rights Reserved</p>
+                     <p class="mb-14 px-5 py-3 hidden md:block text-center text-xs">All Rights Reserved
+                         <span class="dark:text-gray-400">©</span> 2024 <br>
+                         <span class="dark:text-gray-400">Developed by Ynah & Vince
+                     </p>
+
                  </div>
              </div>
 
@@ -113,7 +117,7 @@
              <div class="mt-16 h-full ml-14 mb-10 md:ml-64">
                  <!-- Statistics Cards -->
                  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 p-4 gap-4">
-                     <div class="bg-blue-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
+                     <div class="bg-blue-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between py-10 px-5 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
                          <div class="flex justify-center items-center w-14 h-14 bg-white rounded-full transition-all duration-300 transform group-hover:rotate-12">
                              <svg width="30" height="30" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="stroke-current text-blue-800 dark:text-gray-800 transform transition-transform duration-500 ease-in-out">
                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
@@ -124,7 +128,7 @@
                              <p>S.N Request</p>
                          </div>
                      </div>
-                     <div class="bg-blue-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
+                     <div class="bg-blue-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between  py-10 px-5 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
                          <div class="flex justify-center items-center w-14 h-14 bg-white rounded-full transition-all duration-300 transform group-hover:rotate-12">
                              <svg width="30" height="30" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="stroke-current text-blue-800 dark:text-gray-800 transform transition-transform duration-500 ease-in-out">
                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
@@ -135,7 +139,7 @@
                              <p>Incoming</p>
                          </div>
                      </div>
-                     <div class="bg-blue-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
+                     <div class="bg-blue-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between  py-10 px-5 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
                          <div class="flex justify-center items-center w-14 h-14 bg-white rounded-full transition-all duration-300 transform group-hover:rotate-12">
                              <svg width="30" height="30" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="stroke-current text-blue-800 dark:text-gray-800 transform transition-transform duration-500 ease-in-out">
                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
@@ -146,7 +150,7 @@
                              <p>Outgoing</p>
                          </div>
                      </div>
-                     <div class="bg-blue-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
+                     <div class="bg-blue-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between  py-10 px-5 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
                          <div class="flex justify-center items-center w-14 h-14 bg-white rounded-full transition-all duration-300 transform group-hover:rotate-12">
                              <svg width="30" height="30" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="stroke-current text-blue-800 dark:text-gray-800 transform transition-transform duration-500 ease-in-out">
                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />

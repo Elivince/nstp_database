@@ -19,13 +19,18 @@
 
 <body class="font-sans text-gray-900 antialiased">
     <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
+
+        <div style="text-align: center;">
+            <img src="images/nstp-logo.png" alt="Logo" width="200" height="80">
+        </div>
+
         <div>
             <a href="/">
-                <span style="font-size: 4rem; font-weight: bold; color: #4a5568;">NSTP DATABASE</span>
+                <span style="font-size: 2.5rem; font-weight: bold; color: #D9D9D9">NSTP TRACKING SYSTEM</span>
             </a>
         </div>
 
-        <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg">
+        <div class="w-full sm:max-w-md mt-3 px-6 py-4 bg-white dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg">
             {{ $slot }}
         </div>
     </div>
