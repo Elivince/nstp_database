@@ -8,6 +8,7 @@
 <body>
     <script>
         window.open('https://drive.google.com/drive/u/1/home', '_blank');
+        window.location.href = '/dashboard';
     </script>
 </body>
 </html>
