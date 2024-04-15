@@ -206,7 +206,7 @@
                                 <td class="py-3 pl-2">{{ $request->remarks }}</td>
                                 <td class="py-3 pl-2">{{ $request->issued_by }}</td>
                                 <td class="py-3 pl-2">
-                                    <button @click=" open=true" action="/viewEditRequest/{{$request->request_id}}" method="POST">Edit</button>
+                                    <button @click=" open=true">Edit</button>
                                 </td>
                                 <td class="pl-0 pr-5 py-3">
                                     <form action="/deleteRequest/{{ $request->request_id }}" method="POST">
@@ -221,7 +221,7 @@
                     </table>
                 </div>
 
-                <div x-show="open" style="background-color: rgba(0, 0, 0, 0.8)" class="fixed inset-0 overflow-y-auto z-40 top-0 right-0 left-0 bottom-0 h-full w-full">
+                <div id="editModal" x-show="open" style="background-color: rgba(0, 0, 0, 0.8)" class="fixed inset-0 overflow-y-auto z-40 top-0 right-0 left-0 bottom-0 h-full w-full">
                     <div class="p-4 max-w-2xl mx-auto absolute left-0 right-0 overflow-hidden mt-10">
                         <div class="shadow absolute right-0 top-0 w-10 h-10 rounded-full bg-white text-gray-500 hover:text-gray-800 inline-flex items-center justify-center cursor-pointer" @click="open = false">
                             <svg class="fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -304,29 +304,6 @@
                     {{ $requests->links() }}
                 </div>
             </div>
-
         </div>
-
     </div>
-
-
-
-    <script>
-        class MyClass {
-            constructor() {
-                this.editRequest = false; // This should keep the modal closed by default
-            }
-
-            showEditRequest = () => {
-                this.editRequest = true;
-            }
-
-            closeEditRequest = () => {
-                this.editRequest = false;
-            }
-        }
-
-        // Instantiate the class and bind it to the window object
-        window.myClass = new MyClass();
-    </script>
 </x-app-layout>
