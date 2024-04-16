@@ -48,7 +48,7 @@ class TrackerController extends Controller
 
         $incomingFields['date'] = today();
 
-        $incomingFields['issued_by'] = Auth::user()->name;
+        $incomingFields['issued_by'] = session('username');
 
         $incomingFields['name'] = strip_tags($incomingFields['name']);
         $incomingFields['component'] = strip_tags($incomingFields['component']);
