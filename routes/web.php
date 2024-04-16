@@ -4,9 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TrackerController;
 use App\Http\Controllers\CalendarController;
-use App\Http\Controllers\FileSystemController;
 use App\Http\Controllers\IncomingController;
 use App\Http\Controllers\OutgoingController;
+use App\Http\Controllers\UsernameController;
+use App\Http\Controllers\FileSystemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/username',[UsernameController::class, 'showUsernameForm']);
+
+Route::post('/saveUsername',[UsernameController::class, 'saveUsername']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
