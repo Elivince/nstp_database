@@ -43,7 +43,7 @@ class OutgoingController extends Controller
 
         $incomingFields['date'] = today();
 
-        $incomingFields['received_by'] = Auth::user()->name;
+        $incomingFields['received_by'] = session('username');
 
         $incomingFields['to_office'] = strip_tags($incomingFields['to_office']);
         $incomingFields['for'] = strip_tags($incomingFields['for']);
