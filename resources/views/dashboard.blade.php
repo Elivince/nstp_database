@@ -117,6 +117,7 @@
              <div class="mt-16 h-full ml-14 mb-10 md:ml-64">
                  <!-- Statistics Cards -->
                  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 p-4 gap-4">
+                    <a href="{{ route('tracker') }}" class="card-link">
                      <div class="bg-blue-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between py-10 px-5 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
                          <div class="flex justify-center items-center w-14 h-14 bg-white rounded-full transition-all duration-300 transform group-hover:rotate-12">
                              <svg width="30" height="30" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="stroke-current text-blue-800 dark:text-gray-800 transform transition-transform duration-500 ease-in-out">
@@ -128,6 +129,8 @@
                              <p>S.N Request</p>
                          </div>
                      </div>
+                    </a>
+                    <a href="{{ route('incoming') }}" class="card-link">
                      <div class="bg-blue-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between  py-10 px-5 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
                          <div class="flex justify-center items-center w-14 h-14 bg-white rounded-full transition-all duration-300 transform group-hover:rotate-12">
                              <svg width="30" height="30" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="stroke-current text-blue-800 dark:text-gray-800 transform transition-transform duration-500 ease-in-out">
@@ -139,6 +142,8 @@
                              <p>Incoming</p>
                          </div>
                      </div>
+                    </a>
+                    <a href="{{ route('outgoing') }}" class="card-link">
                      <div class="bg-blue-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between  py-10 px-5 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
                          <div class="flex justify-center items-center w-14 h-14 bg-white rounded-full transition-all duration-300 transform group-hover:rotate-12">
                              <svg width="30" height="30" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="stroke-current text-blue-800 dark:text-gray-800 transform transition-transform duration-500 ease-in-out">
@@ -150,6 +155,8 @@
                              <p>Outgoing</p>
                          </div>
                      </div>
+                    </a>
+                    <a href="{{ route('file-system') }}" class="card-link">
                      <div class="bg-blue-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between  py-10 px-5 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
                          <div class="flex justify-center items-center w-14 h-14 bg-white rounded-full transition-all duration-300 transform group-hover:rotate-12">
                              <svg width="30" height="30" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="stroke-current text-blue-800 dark:text-gray-800 transform transition-transform duration-500 ease-in-out">
@@ -161,6 +168,7 @@
                              <p>Documents</p>
                          </div>
                      </div>
+                    </a>
                  </div>
                  <!-- ./Statistics Cards -->
 
