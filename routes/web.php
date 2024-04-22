@@ -7,6 +7,7 @@ use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\IncomingController;
 use App\Http\Controllers\OutgoingController;
 use App\Http\Controllers\UsernameController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FileSystemController;
 
 /*
@@ -37,6 +38,8 @@ Route::post('/saveUsername',[UsernameController::class, 'saveUsername']);
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/dashboard', [DashboardController::class, 'countStatistics'])->middleware(['auth', 'verified'])->name('dashboard');
 
 // CALENDAR EVENT TRACKER ROUTES //
 Route::get('/calendar', function () {

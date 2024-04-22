@@ -125,7 +125,7 @@
                              </svg>
                          </div>
                          <div class="text-right">
-                             <p class="text-2xl">1,257</p>
+                             <p class="text-2xl">{{ $trackerCount }}</p>
                              <p>S.N Request</p>
                          </div>
                      </div>
@@ -138,7 +138,7 @@
                              </svg>
                          </div>
                          <div class="text-right">
-                             <p class="text-2xl">557</p>
+                             <p class="text-2xl">{{ $incomingCount }}</p>
                              <p>Incoming</p>
                          </div>
                      </div>
@@ -151,7 +151,7 @@
                              </svg>
                          </div>
                          <div class="text-right">
-                             <p class="text-2xl">1,257</p>
+                            <p class="text-2xl">{{ $outgoingCount }}</p>
                              <p>Outgoing</p>
                          </div>
                      </div>
@@ -164,7 +164,6 @@
                              </svg>
                          </div>
                          <div class="text-right">
-                             <p class="text-2xl">5,257</p>
                              <p>Documents</p>
                          </div>
                      </div>
