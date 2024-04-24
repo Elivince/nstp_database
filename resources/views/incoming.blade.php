@@ -268,7 +268,7 @@
                     <span class="flex items-center col-span-3"> Showing {{ $incomings->firstItem() }} - {{ $incomings->lastItem() }} of {{ $incomings->total() }} </span>
                     <span class="col-span-2"></span>
                     <!-- Pagination -->
-                    <div class="flex justify-center mt-6">
+                    <div class="flex items-end justify-end col-span-4 mr-4">
                         {{ $incomings->links() }}
                     </div>
                 </div>
