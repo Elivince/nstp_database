@@ -2,7 +2,7 @@
 
     <!-- Sidebar -->
     <div class="fixed flex flex-col top-14 left-0 w-14 hover:w-64 md:w-64 bg-blue-900 dark:bg-gray-900 h-full text-white transition-all duration-300 border-none z-10 sidebar">
-        <div class="overflow-y-auto overflow-x-hidden flex flex-col justify-between flex-grow">
+        <div class="overflow-y-auto overflow-x-hidden flex-shrink-0 flex flex-col antialiased justify-between">
             <ul class="flex flex-col py-4 space-y-1">
                 <li class="px-5 hidden md:block">
                     <div class="flex flex-row items-center h-8">
