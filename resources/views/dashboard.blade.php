@@ -170,9 +170,11 @@
                                  <div class="relative w-full max-w-full flex-grow flex-1">
                                      <h3 class="font-semibold text-base text-gray-900 dark:text-gray-50">Incoming Communication</h3>
                                  </div>
-                                 <div class="relative w-full max-w-full flex-grow flex-1 text-right">
-                                     <button class="bg-blue-500 dark:bg-gray-100 text-white active:bg-blue-600 dark:text-gray-800 dark:active:text-gray-700 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">See all</button>
-                                 </div>
+                                 <a href="{{ route('incoming') }}">
+                                    <div class="relative w-full max-w-full flex-grow flex-1 text-right">
+                                        <button class="bg-blue-500 dark:bg-gray-100 text-white active:bg-blue-600 dark:text-gray-800 dark:active:text-gray-700 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">See all</button>
+                                    </div>
+                                </a>
                              </div>
                              <div class="block w-full overflow-x-auto">
                                  <table class="min-w-full dark:text-white text-left text-sm font-light">
@@ -208,8 +210,10 @@
                                      <h3 class="font-semibold text-base text-gray-900 dark:text-gray-50">Outgoing Communication</h3>
                                  </div>
                                  <div class="relative w-full max-w-full flex-grow flex-1 text-right">
+                                    <a href="{{ route('outgoing') }}">
                                      <button class="bg-blue-500 dark:bg-gray-100 text-white active:bg-blue-600 dark:text-gray-800 dark:active:text-gray-700 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">See all</button>
-                                 </div>
+                                    </a>
+                                </div>
                              </div>
                              <div class="block w-full overflow-x-auto">
                                  <table class="min-w-full dark:text-white text-left text-sm font-light">
