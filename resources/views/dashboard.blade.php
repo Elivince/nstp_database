@@ -179,7 +179,7 @@
                                      <thead class="border-b font-medium dark:text-white dark:border-neutral-500">
                                          <tr>
                                              <th scope="col" class="px-6 py-4">Date</th>
-                                             <th scope="col" class="px-6 py-4">From what office</th>
+                                             <th scope="col" class="px-5 py-4">From what office</th>
                                              <th scope="col" class="px-6 py-4">Subject</th>
                                              <th scope="col" class="px-6 py-4">Remarks</th>
                                          </tr>
