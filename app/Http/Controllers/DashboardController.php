@@ -6,16 +6,18 @@ use Illuminate\Http\Request;
 use App\Models\Tracker;
 use App\Models\Incoming;
 use App\Models\Outgoing;
-use App\Models\FileSystem;
 
 class DashboardController extends Controller
 {
-    public function countStatistics()
+    public function getInfos()
     {
         $trackerCount = Tracker::count();
-        $incomingCount = Incoming::count();
+        $incomingCount = Tracker::count();
         $outgoingCount = Outgoing::count();
 
-        return view('dashboard', compact('trackerCount', 'incomingCount', 'outgoingCount'));
+        $incomings = Incoming::orderBy('date', 'desc')->take(5)->get();
+        $outgoings = Outgoing::orderBy('date', 'desc')->take(5)->get();
+
+        return view('dashboard', compact('trackerCount', 'incomingCount', 'outgoingCount', 'incomings', 'outgoings'));
     }
 }

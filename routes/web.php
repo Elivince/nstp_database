@@ -39,7 +39,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/dashboard', [DashboardController::class, 'countStatistics'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'getInfos'])->middleware(['auth', 'verified'])->name('dashboard');
 
 // CALENDAR EVENT TRACKER ROUTES //
 Route::get('/calendar', function () {

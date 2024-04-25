@@ -178,51 +178,21 @@
                                  <table class="min-w-full dark:text-white text-left text-sm font-light">
                                      <thead class="border-b font-medium dark:text-white dark:border-neutral-500">
                                          <tr>
-                                             <th scope="col" class="px-6 py-4">#</th>
-                                             <th scope="col" class="px-6 py-4">Heading</th>
-                                             <th scope="col" class="px-6 py-4">Heading</th>
-                                             <th scope="col" class="px-6 py-4">Heading</th>
-                                             <th scope="col" class="px-6 py-4">Heading</th>
-                                             <th scope="col" class="px-6 py-4">Heading</th>
-                                             <th scope="col" class="px-6 py-4">Heading</th>
-                                             <th scope="col" class="px-6 py-4">Heading</th>
-                                             <th scope="col" class="px-6 py-4">Heading</th>
+                                             <th scope="col" class="px-6 py-4">Date</th>
+                                             <th scope="col" class="px-6 py-4">From what office</th>
+                                             <th scope="col" class="px-6 py-4">Subject</th>
+                                             <th scope="col" class="px-6 py-4">Remarks</th>
                                          </tr>
                                      </thead>
                                      <tbody>
+                                        @foreach ($incomings as $incoming)
                                          <tr class="border-b dark:border-neutral-500">
-                                             <td class="whitespace-nowrap px-6 py-4 font-medium">1</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
+                                            <td class="whitespace-nowrap px-6 py-4 font-medium">{{ $incoming->date }}</td>
+                                            <td class="whitespace-nowrap px-6 py-4 font-medium">{{ $incoming->from_office }}</td>
+                                            <td class="whitespace-nowrap px-6 py-4 font-medium">{{ $incoming->subject }}</td>
+                                            <td class="whitespace-nowrap px-6 py-4 font-medium">{{ $incoming->remarks }}</td>
                                          </tr>
-                                         <tr class="border-b dark:border-neutral-500">
-                                             <td class="whitespace-nowrap px-6 py-4 font-medium ">2</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4 ">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4 ">Cell</td>
-                                         </tr>
-                                         <tr class="border-b ">
-                                             <td class="whitespace-nowrap px-6 py-4 font-medium ">3</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                         </tr>
+                                         @endforeach
                                      </tbody>
                                  </table>
                              </div>
@@ -245,51 +215,21 @@
                                  <table class="min-w-full dark:text-white text-left text-sm font-light">
                                      <thead class="border-b font-medium dark:text-white dark:border-neutral-500">
                                          <tr>
-                                             <th scope="col" class="px-6 py-4">#</th>
-                                             <th scope="col" class="px-6 py-4">Heading</th>
-                                             <th scope="col" class="px-6 py-4">Heading</th>
-                                             <th scope="col" class="px-6 py-4">Heading</th>
-                                             <th scope="col" class="px-6 py-4">Heading</th>
-                                             <th scope="col" class="px-6 py-4">Heading</th>
-                                             <th scope="col" class="px-6 py-4">Heading</th>
-                                             <th scope="col" class="px-6 py-4">Heading</th>
-                                             <th scope="col" class="px-6 py-4">Heading</th>
+                                            <th scope="col" class="px-6 py-4">Date</th>
+                                            <th scope="col" class="px-6 py-4">To what office</th>
+                                            <th scope="col" class="px-6 py-4">Subject</th>
+                                            <th scope="col" class="px-6 py-4">Remarks</th>
                                          </tr>
                                      </thead>
                                      <tbody>
-                                         <tr class="border-b dark:border-neutral-500">
-                                             <td class="whitespace-nowrap px-6 py-4 font-medium">1</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                         </tr>
-                                         <tr class="border-b dark:border-neutral-500">
-                                             <td class="whitespace-nowrap px-6 py-4 font-medium ">2</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4 ">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4 ">Cell</td>
-                                         </tr>
-                                         <tr class="border-b ">
-                                             <td class="whitespace-nowrap px-6 py-4 font-medium ">3</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                             <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                                         </tr>
+                                        @foreach ($outgoings as $incoming)
+                                        <tr class="border-b dark:border-neutral-500">
+                                           <td class="whitespace-nowrap px-6 py-4 font-medium">{{ $incoming->date }}</td>
+                                           <td class="whitespace-nowrap px-6 py-4 font-medium">{{ $incoming->to_office }}</td>
+                                           <td class="whitespace-nowrap px-6 py-4 font-medium">{{ $incoming->subject }}</td>
+                                           <td class="whitespace-nowrap px-6 py-4 font-medium">{{ $incoming->remarks }}</td>
+                                        </tr>
+                                        @endforeach
                                      </tbody>
                                  </table>
                              </div>
